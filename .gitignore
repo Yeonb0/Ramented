@@ -1,0 +1,10 @@
+# Env & secrets  (JWT 시크릿, DB 비번, 스토리지 키 절대 커밋 금지)
+.env
+.env.*
+!.env.example
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.iml
