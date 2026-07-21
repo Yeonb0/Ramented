@@ -94,7 +94,9 @@
 
 ## 🗂 데이터 모델 (초안)
 
-> **핵심 설계**: `Ramen`(라멘 종류)과 `RamenShop`(가게)은 다대다(N:M) 관계이며, 중간 엔티티 `ShopRamen`("어느 가게가 어느 라멘을 판다")으로 연결한다. 가격과 별점은 이 `ShopRamen`에 붙는다.
+> **핵심 설계**: `Ramen`(라멘 종류)과 `RamenShop`(가게)은 다대다(N:M) 관계이며, 중간 엔티티 `ShopRamen`("어느 가게가 어느 라멘을 판다")으로 연결한다. 가격·메뉴명·별점은 이 `ShopRamen`에 붙는다.
+>
+> **라멘 분류**: `Ramen`은 단일 카테고리가 아니라 **6축 다차원 분류**(육수 재료 / 탁도 / 온도 / 타래 / 형태 / 계보)를 사용한다. 상세는 [`ramen-classification.md`](./ramen-classification.md) 참조.
 
 ```
 User
@@ -106,11 +108,18 @@ User
  └─ createdAt: DateTime
      // 등급(tier)은 최근 7일간 visitedAt 기준 Review 수로 파생 (아래 '라멘 등급' 참고)
 
-Ramen                          // 라멘 종류 카탈로그 (여러 가게가 공유)
+Ramen                          // 라멘 종류 카탈로그 (여러 가게가 공유) — 6축 분류
  ├─ id: Long (PK)
- ├─ name: String              // 예: "돈코츠 라멘", "미소 라멘", "츠케멘"
- ├─ category: enum            // TONKOTSU, SHOYU, MISO, SHIO, TSUKEMEN, ETC
- └─ description: String        // 취향 분석·필터 그룹핑에 사용
+ ├─ name: String              // 표시용 관용명, 예: "돈코츠 라멘", "토리파이탄 쇼유"
+ ├─ soup: SoupBase (enum, nullable)         // 육수 재료: PORK, CHICKEN, BEEF, DUCK, SEAFOOD, VEGETABLE, MIXED, ETC
+ ├─ clarity: Clarity (enum, nullable)       // 탁도: SEITAN(청탕), PAITAN(백탕)
+ ├─ temperature: Temperature (enum)         // 온도: HOT, COLD
+ ├─ tare: Tare (enum)                       // 타래: SHIO, SHOYU, MISO, SPICY, ETC
+ ├─ form: Form (enum)                       // 형태: RAMEN, TSUKEMEN, MAZESOBA, ABURASOBA, ETC
+ ├─ style: Style (enum, nullable)           // 계보: JIRO, IEKEI, HAKATA, SAPPORO, TOKYO, ETC
+ └─ description: String                     // (선택) 부가 설명
+     // soup·clarity는 무국물(MAZESOBA/ABURASOBA)이면 null, style은 특정 계보일 때만
+     // 축별 정의·필터 규칙은 ramen-classification.md 참조
 
 RamenShop                      // 가게
  ├─ id: Long (PK)
@@ -119,14 +128,15 @@ RamenShop                      // 가게
  ├─ longitude: Double
  ├─ address: String
  ├─ region: String            // 예: "서울 마포구"
- └─ createdAt: DateTime
+ └─ businessHours: String     // 표시용 텍스트, 예: "11:00-21:00, 화요일 휴무"
 
 ShopRamen                      // 중간 엔티티: "이 가게가 파는 이 라멘"
  ├─ id: Long (PK)
  ├─ shop: RamenShop (FK, N:1)
  ├─ ramen: Ramen (FK, N:1)
  ├─ price: int
- └─ menuName: String          // (선택) 가게 고유 메뉴명, 예: "특제 돈코츠"
+ ├─ menuName: String          // (선택) 가게 고유 메뉴명, 예: "특제 돈코츠"
+ └─ description: String        // (선택) 이 가게의 이 라멘에 대한 설명
 
 Review                         // 별점·인증샷 → "가게의 그 라멘"에 연결
  ├─ id: Long (PK)
@@ -154,7 +164,7 @@ Event                          // (Stretch) 가게 이벤트
 - `User` 1 : N `Review`
 - `RamenShop` 1 : N `Event` *(Stretch)*
 - "가게의 그 라멘" 평균 별점 = 해당 `ShopRamen`의 `Review.rating` 집계
-- 취향 분석 = 사용자의 `Review` → `ShopRamen` → `Ramen.category` 로 조인·집계
+- 취향 분석 = 사용자의 `Review` → `ShopRamen` → `Ramen`의 분류 축(`tare`·`form`·`soup` 등)으로 조인·집계
 - 라멘 등급 = 사용자의 `Review` 중 **최근 7일(`visitedAt` 기준)** 개수로 파생
 
 **라멘 등급(예시)** — 최근 7일 방문 횟수 기준, 프로필 아바타 링으로 표현
@@ -174,7 +184,7 @@ Event                          // (Stretch) 가게 이벤트
 | --- | --- | --- | --- |
 | `POST` | `/api/auth/signup` | 회원가입 | ❌ |
 | `POST` | `/api/auth/login` | 로그인 (JWT 발급) | ❌ |
-| `GET` | `/api/ramens` | 라멘 종류 목록 (category 포함, 필터 선택지) | ❌ |
+| `GET` | `/api/ramens` | 라멘 종류 목록 (6축 분류 포함, 필터 선택지) | ❌ |
 | `GET` | `/api/ramens/{ramenId}/shops` | **그 라멘 파는 가게 + 가게별 그 라멘 평점** | ❌ |
 | `GET` | `/api/shops` | 전체 가게 목록 (지역 필터 지원) | ❌ |
 | `GET` | `/api/shops/{id}` | 가게 상세 + 취급 라멘 목록(각 평점 포함) | ❌ |
@@ -219,26 +229,26 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 ### ⬜ Phase 0 — 프로젝트 세팅 (로컬)  ← 여기서 시작
 > MVP(Phase 1~5)까지는 로컬에서 개발하고, 첫 배포는 MVP 완성 후에 한 번에. (아래 'MVP 배포' 참고)
 
-- [ ] Expo (React Native + TypeScript) 앱 초기화
-- [ ] Spring Boot (Web, JPA, Security) 백엔드 초기화
-- [ ] `tsconfig` — 초기엔 `strict` 느슨하게, 이후 점진적으로 강화
-- [ ] 로컬 PostgreSQL 연결 확인
-- [ ] `GET /api/health` 더미 엔드포인트 → Expo Go 앱에서 호출 성공 확인
+- [x] Expo (React Native + TypeScript) 앱 초기화
+- [x] Spring Boot (Web, JPA, Security) 백엔드 초기화
+- [x] `tsconfig` — 초기엔 `strict` 느슨하게, 이후 점진적으로 강화
+- [x] 로컬 PostgreSQL 연결 확인
+- [x] `GET /api/health` 더미 엔드포인트 → Expo Go 앱에서 호출 성공 확인
 
 ### ⬜ Phase 1 — 라멘 · 가게 · 지도
-> `Ramen`(+category) / `RamenShop` / `ShopRamen` 세 엔티티와 N:M 연관관계를 함께 세운다.
+> `Ramen`(6축 분류) / `RamenShop` / `ShopRamen` 세 엔티티와 N:M 연관관계를 함께 세운다.
 
-- [ ] `Ramen`, `RamenShop`, `ShopRamen` 엔티티 및 리포지토리 작성
+- [x] `Ramen`, `RamenShop`, `ShopRamen` 엔티티 및 리포지토리 작성
 - [ ] N:M 연관관계 매핑 (중간 엔티티 `ShopRamen` 방식)
 - [ ] `GET /api/shops` 구현 (라멘·가게·ShopRamen 시드 데이터 삽입)
-- [ ] **지도 SDK 결정** 및 연동 (react-native-maps / 네이버 / 카카오 WebView)
+- [ ] **지도 SDK 결정** 및 연동 (react-native-maps / 네이버 / 카카오 WebView) -> 카카오 WebView 로 결정
 - [ ] 가게 데이터를 지도 마커로 표시
 - [ ] TanStack Query로 fetch·캐싱 / API 응답 타입(`Shop`, `Ramen`) 정의
 
 ### ⬜ Phase 2 — 라멘별 탐색 & 필터
 > 이 앱의 핵심 경험. "특정 라멘 선택 → 그 라멘 파는 가게만 지도에".
 
-- [ ] `GET /api/ramens` (category 포함)
+- [ ] `GET /api/ramens` (6축 분류 포함)
 - [ ] `GET /api/ramens/{ramenId}/shops` (지역 필터 + `specialistOnly` 옵션)
 - [ ] 앱 라멘 선택 UI (칩/드롭다운) 및 마커 갱신
 - [ ] 전문점 필터 토글 (옵션)
@@ -318,7 +328,7 @@ ramenlog/
 │   └── package.json
 │
 └── backend/                  # Spring Boot
-    ├── src/main/java/com/ramenlog/
+    ├── src/main/java/com/ramenlog/backend
     │   ├── domain/          # 엔티티
     │   ├── repository/      # JPA 리포지토리
     │   ├── service/         # 비즈니스 로직
