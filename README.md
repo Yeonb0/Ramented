@@ -11,6 +11,7 @@
 라멘 가게를 지도에 시각화하고, 사용자가 직접 방문한 곳을 사진·라멘별 별점과 함께 기록하는 개인 모바일 앱입니다. **React Native + Expo**로 클라이언트를, **Java + Spring Boot**로 REST API 백엔드를 구성합니다. 백엔드는 클라이언트(웹/앱)와 무관하게 동작하므로, 이후 웹 확장 시에도 그대로 재사용할 수 있습니다.
 
 **핵심 학습 목표**
+
 - React Native + Expo + **TypeScript** 실전 (기존 React 지식 재사용 + 모바일 전환)
 - Spring Boot REST API 설계 및 JPA **N:M 연관관계(중간 엔티티)** 매핑
 - Spring Security + JWT 기반 인증/인가
@@ -22,24 +23,26 @@
 
 ## ✨ 주요 기능
 
-| 기능 | 설명 |
-| --- | --- |
-| 🗺️ **지도 탐색** | 지도 위에 라멘 가게를 마커로 표시 |
-| 🍜 **라멘별 탐색** | 특정 라멘(돈코츠/쇼유/미소/시오/츠케멘 등)을 선택하면 그 라멘을 파는 가게만 표시 |
-| 🏆 **전문점 필터** *(옵션)* | 그 라멘'만' 취급하는 전문점만 골라보기 |
-| 🔍 **필터** | 선택한 라멘 + 지역 조합으로 가게 필터링 |
-| 🔐 **인증** | 이메일 기반 회원가입 / 로그인 (JWT) |
-| ⭐ **라멘별 별점** | 가게 전체가 아닌 "가게의 그 라멘"별 평균 별점 (같은 라멘을 가게별로 비교) |
-| 📸 **인증샷 기록** | 카메라/앨범으로 방문 사진 첨부 리뷰 작성, 나만의 방문 기록 |
-| 📊 **취향 분석** | 내 리뷰를 라멘 종류·지역별로 집계해 취향 리포트 제공 |
-| 🎖️ **라멘 등급** | 최근 7일 라멘 방문 횟수에 따른 "이번 주 등급"을 프로필 아바타 테두리(링)로 표시 |
-| 📣 **이벤트 알림 & 후기** *(Stretch)* | 가게 이벤트 푸시 알림 + 이벤트 전용 후기 |
+| 기능                                 | 설명                                                         |
+| ------------------------------------ | ------------------------------------------------------------ |
+| 🗺️ **지도 탐색**                      | 지도 위에 라멘 가게를 마커로 표시                            |
+| 🍜 **라멘별 탐색**                    | 특정 라멘(돈코츠/쇼유/미소/시오/츠케멘 등)을 선택하면 그 라멘을 파는 가게만 표시 |
+| 🏆 **전문점 필터** *(옵션)*           | 그 라멘'만' 취급하는 전문점만 골라보기                       |
+| 🔍 **필터**                           | 선택한 라멘 + 지역 조합으로 가게 필터링                      |
+| 🔐 **인증**                           | 이메일 기반 회원가입 / 로그인 (JWT)                          |
+| ⭐ **라멘별 별점**                    | 가게 전체가 아닌 "가게의 그 라멘"별 평균 별점 (같은 라멘을 가게별로 비교) |
+| 📸 **인증샷 기록**                    | 카메라/앨범으로 방문 사진 첨부 리뷰 작성, 나만의 방문 기록   |
+| 📊 **취향 분석**                      | 내 리뷰를 라멘 종류·지역별로 집계해 취향 리포트 제공         |
+| 🎖️ **라멘 등급**                      | 최근 7일 라멘 방문 횟수에 따른 "이번 주 등급"을 프로필 아바타 테두리(링)로 표시 |
+| 📣 **이벤트 알림 & 후기** *(Stretch)* | 가게 이벤트 푸시 알림 + 이벤트 전용 후기                     |
+| 🍥 **사이드 궁합** *(Stretch)*        | 가게별 인기 메인+사이드 조합 평가 & 추천                     |
 
 ---
 
 ## 🛠 기술 스택
 
 ### Frontend (Mobile App)
+
 - **React Native + Expo + TypeScript**
 - **React Navigation** — 화면 내비게이션
 - **TanStack Query** — 서버 상태 관리 / 캐싱 / 로딩·에러 처리
@@ -49,11 +52,13 @@
 - **expo-notifications** — 푸시 알림 *(Stretch)*
 
 > **지도 SDK 후보 (Phase 1에서 결정)**
+>
 > - `react-native-maps` — 가장 표준적·문서 풍부. 단, 국내 POI/길찾기 데이터가 다소 약함
 > - 네이버 지도 RN SDK — 국내 데이터 강점
 > - 카카오맵을 WebView로 임베드 — 기존 카카오 SDK 재사용 가능하나 통합이 덜 매끄러움
 
 ### Backend (변경 없음)
+
 - **Java 25 + Spring Boot 3.x**
 - **Spring Web** — REST API
 - **Spring Data JPA** — ORM
@@ -62,6 +67,7 @@
 - (선택) **AWS S3** 또는 **Cloudinary** — 이미지 스토리지
 
 ### DevOps / 배포
+
 - **App 빌드**: Expo **EAS Build** → 개발 중엔 Expo Go / 개발 빌드, 배포 시 TestFlight·Play Console 또는 Expo 공유 링크
 - **Backend**: Railway 또는 Render (관리형 PostgreSQL 포함)
 - **CI/CD**: GitHub Actions
@@ -94,9 +100,7 @@
 
 ## 🗂 데이터 모델 (초안)
 
-> **핵심 설계**: `Ramen`(라멘 종류)과 `RamenShop`(가게)은 다대다(N:M) 관계이며, 중간 엔티티 `ShopRamen`("어느 가게가 어느 라멘을 판다")으로 연결한다. 가격·메뉴명·별점은 이 `ShopRamen`에 붙는다.
->
-> **라멘 분류**: `Ramen`은 단일 카테고리가 아니라 **6축 다차원 분류**(육수 재료 / 탁도 / 온도 / 타래 / 형태 / 계보)를 사용한다. 상세는 [`ramen-classification.md`](./ramen-classification.md) 참조.
+> **핵심 설계**: `Ramen`(라멘 종류)과 `RamenShop`(가게)은 다대다(N:M) 관계이며, 중간 엔티티 `ShopRamen`("어느 가게가 어느 라멘을 판다")으로 연결한다. 가격과 별점은 이 `ShopRamen`에 붙는다.
 
 ```
 User
@@ -108,18 +112,11 @@ User
  └─ createdAt: DateTime
      // 등급(tier)은 최근 7일간 visitedAt 기준 Review 수로 파생 (아래 '라멘 등급' 참고)
 
-Ramen                          // 라멘 종류 카탈로그 (여러 가게가 공유) — 6축 분류
+Ramen                          // 라멘 종류 카탈로그 (여러 가게가 공유)
  ├─ id: Long (PK)
- ├─ name: String              // 표시용 관용명, 예: "돈코츠 라멘", "토리파이탄 쇼유"
- ├─ soup: SoupBase (enum, nullable)         // 육수 재료: PORK, CHICKEN, BEEF, DUCK, SEAFOOD, VEGETABLE, MIXED, ETC
- ├─ clarity: Clarity (enum, nullable)       // 탁도: SEITAN(청탕), PAITAN(백탕)
- ├─ temperature: Temperature (enum)         // 온도: HOT, COLD
- ├─ tare: Tare (enum)                       // 타래: SHIO, SHOYU, MISO, SPICY, ETC
- ├─ form: Form (enum)                       // 형태: RAMEN, TSUKEMEN, MAZESOBA, ABURASOBA, ETC
- ├─ style: Style (enum, nullable)           // 계보: JIRO, IEKEI, HAKATA, SAPPORO, TOKYO, ETC
- └─ description: String                     // (선택) 부가 설명
-     // soup·clarity는 무국물(MAZESOBA/ABURASOBA)이면 null, style은 특정 계보일 때만
-     // 축별 정의·필터 규칙은 ramen-classification.md 참조
+ ├─ name: String              // 예: "돈코츠 라멘", "미소 라멘", "츠케멘"
+ ├─ category: enum            // TONKOTSU, SHOYU, MISO, SHIO, TSUKEMEN, ETC
+ └─ description: String        // 취향 분석·필터 그룹핑에 사용
 
 RamenShop                      // 가게
  ├─ id: Long (PK)
@@ -128,15 +125,14 @@ RamenShop                      // 가게
  ├─ longitude: Double
  ├─ address: String
  ├─ region: String            // 예: "서울 마포구"
- └─ businessHours: String     // 표시용 텍스트, 예: "11:00-21:00, 화요일 휴무"
+ └─ createdAt: DateTime
 
 ShopRamen                      // 중간 엔티티: "이 가게가 파는 이 라멘"
  ├─ id: Long (PK)
  ├─ shop: RamenShop (FK, N:1)
  ├─ ramen: Ramen (FK, N:1)
  ├─ price: int
- ├─ menuName: String          // (선택) 가게 고유 메뉴명, 예: "특제 돈코츠"
- └─ description: String        // (선택) 이 가게의 이 라멘에 대한 설명
+ └─ menuName: String          // (선택) 가게 고유 메뉴명, 예: "특제 돈코츠"
 
 Review                         // 별점·인증샷 → "가게의 그 라멘"에 연결
  ├─ id: Long (PK)
@@ -159,20 +155,22 @@ Event                          // (Stretch) 가게 이벤트
 ```
 
 **관계 요약**
+
 - `RamenShop` N : M `Ramen` (중간 엔티티 `ShopRamen`으로 연결)
 - `ShopRamen` 1 : N `Review`
 - `User` 1 : N `Review`
 - `RamenShop` 1 : N `Event` *(Stretch)*
 - "가게의 그 라멘" 평균 별점 = 해당 `ShopRamen`의 `Review.rating` 집계
-- 취향 분석 = 사용자의 `Review` → `ShopRamen` → `Ramen`의 분류 축(`tare`·`form`·`soup` 등)으로 조인·집계
+- 취향 분석 = 사용자의 `Review` → `ShopRamen` → `Ramen.category` 로 조인·집계
 - 라멘 등급 = 사용자의 `Review` 중 **최근 7일(`visitedAt` 기준)** 개수로 파생
 
 **라멘 등급(예시)** — 최근 7일 방문 횟수 기준, 프로필 아바타 링으로 표현
-| 등급 | 조건(주간 라멘 횟수) |
-| --- | --- |
-| 🍜 라이트 라멘러 | 0 ~ 1 |
-| 🔥 라멘 애호가 | 2 ~ 4 |
-| 👑 주간 라멘왕 | 5+ |
+
+| 등급            | 조건(주간 라멘 횟수) |
+| --------------- | -------------------- |
+| 🍜 라이트 라멘러 | 0 ~ 1                |
+| 🔥 라멘 애호가   | 2 ~ 4                |
+| 👑 주간 라멘왕   | 5+                   |
 
 > 등급은 "이번 주 상태"라 매주 오르내린다. UI에 "이번 주 등급"임을 명시하는 걸 권장.
 
@@ -180,31 +178,33 @@ Event                          // (Stretch) 가게 이벤트
 
 ## 🔌 API 설계 (초안)
 
-| Method | Endpoint | 설명 | 인증 |
-| --- | --- | --- | --- |
-| `POST` | `/api/auth/signup` | 회원가입 | ❌ |
-| `POST` | `/api/auth/login` | 로그인 (JWT 발급) | ❌ |
-| `GET` | `/api/ramens` | 라멘 종류 목록 (6축 분류 포함, 필터 선택지) | ❌ |
-| `GET` | `/api/ramens/{ramenId}/shops` | **그 라멘 파는 가게 + 가게별 그 라멘 평점** | ❌ |
-| `GET` | `/api/shops` | 전체 가게 목록 (지역 필터 지원) | ❌ |
-| `GET` | `/api/shops/{id}` | 가게 상세 + 취급 라멘 목록(각 평점 포함) | ❌ |
-| `POST` | `/api/shops` | 가게 등록 | ✅ |
-| `POST` | `/api/shops/{id}/ramens` | 가게에 라멘(메뉴) 추가 → `ShopRamen` 생성 | ✅ |
-| `GET` | `/api/shop-ramens/{id}/reviews` | 특정 "가게의 그 라멘" 리뷰 목록 | ❌ |
-| `POST` | `/api/shop-ramens/{id}/reviews` | 리뷰 작성 (사진 업로드, multipart) | ✅ |
-| `GET` | `/api/me/reviews` | 내 방문 기록 목록 | ✅ |
-| `GET` | `/api/me/taste` | 내 취향 분석 (종류·지역별 집계) | ✅ |
-| `GET` | `/api/users/{id}/profile` | 프로필 + 이번 주 등급(최근 7일 방문 수 기반) | ❌ |
-| `GET` | `/api/shops/{id}/events` | 가게 이벤트 목록 *(Stretch)* | ❌ |
-| `POST` | `/api/push/token` | 기기 푸시 토큰 등록 *(Stretch)* | ✅ |
+| Method | Endpoint                        | 설명                                         | 인증 |
+| ------ | ------------------------------- | -------------------------------------------- | ---- |
+| `POST` | `/api/auth/signup`              | 회원가입                                     | ❌    |
+| `POST` | `/api/auth/login`               | 로그인 (JWT 발급)                            | ❌    |
+| `GET`  | `/api/ramens`                   | 라멘 종류 목록 (category 포함, 필터 선택지)  | ❌    |
+| `GET`  | `/api/ramens/{ramenId}/shops`   | **그 라멘 파는 가게 + 가게별 그 라멘 평점**  | ❌    |
+| `GET`  | `/api/shops`                    | 전체 가게 목록 (지역 필터 지원)              | ❌    |
+| `GET`  | `/api/shops/{id}`               | 가게 상세 + 취급 라멘 목록(각 평점 포함)     | ❌    |
+| `POST` | `/api/shops`                    | 가게 등록                                    | ✅    |
+| `POST` | `/api/shops/{id}/ramens`        | 가게에 라멘(메뉴) 추가 → `ShopRamen` 생성    | ✅    |
+| `GET`  | `/api/shop-ramens/{id}/reviews` | 특정 "가게의 그 라멘" 리뷰 목록              | ❌    |
+| `POST` | `/api/shop-ramens/{id}/reviews` | 리뷰 작성 (사진 업로드, multipart)           | ✅    |
+| `GET`  | `/api/me/reviews`               | 내 방문 기록 목록                            | ✅    |
+| `GET`  | `/api/me/taste`                 | 내 취향 분석 (종류·지역별 집계)              | ✅    |
+| `GET`  | `/api/users/{id}/profile`       | 프로필 + 이번 주 등급(최근 7일 방문 수 기반) | ❌    |
+| `GET`  | `/api/shops/{id}/events`        | 가게 이벤트 목록 *(Stretch)*                 | ❌    |
+| `POST` | `/api/push/token`               | 기기 푸시 토큰 등록 *(Stretch)*              | ✅    |
 
 **핵심 탐색 쿼리 예시**
+
 ```
 GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 → ramenId=12(예: 돈코츠)를 파는 마포구 가게 중 '전문점'만 + 각 가게의 돈코츠 평균 별점
 ```
 
 **응답 형태 예시** (`GET /api/ramens/{ramenId}/shops`)
+
 ```jsonc
 [
   {
@@ -227,6 +227,7 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 > **개발 방식**: 기능 단위 풀스택(수직 슬라이스). 각 Phase마다 `DB → API → 앱`을 하나로 완성한다.
 
 ### ⬜ Phase 0 — 프로젝트 세팅 (로컬)  ← 여기서 시작
+
 > MVP(Phase 1~5)까지는 로컬에서 개발하고, 첫 배포는 MVP 완성 후에 한 번에. (아래 'MVP 배포' 참고)
 
 - [x] Expo (React Native + TypeScript) 앱 초기화
@@ -236,25 +237,28 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 - [x] `GET /api/health` 더미 엔드포인트 → Expo Go 앱에서 호출 성공 확인
 
 ### ⬜ Phase 1 — 라멘 · 가게 · 지도
-> `Ramen`(6축 분류) / `RamenShop` / `ShopRamen` 세 엔티티와 N:M 연관관계를 함께 세운다.
+
+> `Ramen`(+category) / `RamenShop` / `ShopRamen` 세 엔티티와 N:M 연관관계를 함께 세운다.
 
 - [x] `Ramen`, `RamenShop`, `ShopRamen` 엔티티 및 리포지토리 작성
-- [ ] N:M 연관관계 매핑 (중간 엔티티 `ShopRamen` 방식)
-- [ ] `GET /api/shops` 구현 (라멘·가게·ShopRamen 시드 데이터 삽입)
-- [ ] **지도 SDK 결정** 및 연동 (react-native-maps / 네이버 / 카카오 WebView) -> 카카오 WebView 로 결정
+- [x] N:M 연관관계 매핑 (중간 엔티티 `ShopRamen` 방식)
+- [x] `GET /api/shops` 구현 (라멘·가게·ShopRamen 시드 데이터 삽입)
+- [ ] **지도 SDK 결정** 및 연동 (react-native-maps / 네이버 / 카카오 WebView)
 - [ ] 가게 데이터를 지도 마커로 표시
 - [ ] TanStack Query로 fetch·캐싱 / API 응답 타입(`Shop`, `Ramen`) 정의
 
 ### ⬜ Phase 2 — 라멘별 탐색 & 필터
+
 > 이 앱의 핵심 경험. "특정 라멘 선택 → 그 라멘 파는 가게만 지도에".
 
-- [ ] `GET /api/ramens` (6축 분류 포함)
+- [ ] `GET /api/ramens` (category 포함)
 - [ ] `GET /api/ramens/{ramenId}/shops` (지역 필터 + `specialistOnly` 옵션)
 - [ ] 앱 라멘 선택 UI (칩/드롭다운) 및 마커 갱신
 - [ ] 전문점 필터 토글 (옵션)
 - [ ] 선택 상태를 내비게이션 파라미터로 관리
 
 ### ⬜ Phase 3 — 인증 (Auth)
+
 > 유저 종속 데이터(리뷰·사진)가 나오기 직전에 추가하여 재작업 방지.
 
 - [ ] `User` 엔티티 및 회원가입/로그인 API
@@ -263,6 +267,7 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 - [ ] `expo-secure-store`로 토큰 저장 + 요청 헤더 자동 첨부
 
 ### ⬜ Phase 4 — 라멘별 별점 평가
+
 > 평점은 "가게의 그 라멘"(`ShopRamen`) 단위로 매겨 가게별 비교가 가능하게.
 
 - [ ] `Review` 엔티티 및 `ShopRamen`과의 연관관계(1:N) 매핑
@@ -271,6 +276,7 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 - [ ] 앱 별점 입력·표시 컴포넌트 및 가게 상세 화면
 
 ### ⬜ Phase 5 — 인증샷 기록
+
 > 가장 복잡한 파트. 카메라 + 파일 업로드 + 외부 스토리지.
 
 - [ ] `expo-camera` / `expo-image-picker`로 사진 촬영·선택
@@ -281,6 +287,7 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 ---
 
 ### 🚀 MVP 배포 (Phase 1~5 완료 후 첫 배포)
+
 > 핵심 경험(탐색·필터·인증·라멘별 별점·인증샷)이 완성되면 여기서 **처음으로** 실제 배포한다. 이후 Phase는 이 파이프라인 위에 얹기만 하면 된다.
 
 - [ ] (사전) 백엔드를 한 번 프로덕션 프로파일로 로컬 실행 → 환경 차이 미리 점검
@@ -293,22 +300,34 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 ---
 
 ### ⬜ Phase 6 — 취향 분석 & 라멘 등급
+
 - [ ] `GET /api/me/taste` — 종류·지역별 집계(조인 쿼리)
 - [ ] 등급 로직 (최근 7일 `visitedAt` 방문 수 → 이번 주 등급 파생)
 - [ ] 취향 리포트 화면
 - [ ] 프로필 아바타 등급 링 컴포넌트
 
 ### ⬜ Phase 7 — 이벤트 & 알림 *(Stretch)*
+
 - [ ] `Event` 엔티티 및 가게 이벤트 API, 이벤트 후기(`Review.event`)
 - [ ] 기기 푸시 토큰 등록 API
 - [ ] `expo-notifications` + Expo Push로 이벤트 알림 발송
 
 ### ⬜ Phase 8 — 최종 마무리 & 스토어 정식 배포
+
 > 'MVP 배포'에서 이미 파이프라인은 살아 있으므로, 여기선 다듬기와 정식 제출에 집중.
 
 - [ ] 로딩/에러 UX 및 화면 전환 정리
 - [ ] README에 스크린샷·데모 추가
 - [ ] EAS Build로 프로덕션 빌드, (선택) 스토어 제출 또는 Expo 공유 링크
+
+### ⬜ Phase 9 — 사이드 메뉴 & 궁합 분석 *(Stretch)*
+
+> 사이드(교자·차슈덮밥 등)를 기록하고, 리뷰에 함께 먹은 사이드를 곁들여 **가게별 인기 조합**을 집계한다. 신규 테이블 3개만 더하는 additive 변경이라, 리뷰(Phase 4)·집계(Phase 6) 인프라가 갖춰진 뒤 얹기 좋음. 세부(사이드 별점 분리·조합 입력 UX)는 착수 시점에 결정.
+
+- [ ] `SideMenu` / `ShopSide` 엔티티 — `Ramen` / `ShopRamen`과 대칭 구조
+- [ ] `ReviewSide` 중간 엔티티 — 리뷰(=메인 방문)에 함께 먹은 사이드 연결
+- [ ] 리뷰 작성 API에 `sides` optional 필드 추가 (기존 흐름 비파괴)
+- [ ] 가게 상세에 "이 집 인기 조합 TOP N" 섹션 (`ShopRamen`×`ShopSide` 집계, 가게 국소 스코프)
 
 ---
 
@@ -342,17 +361,17 @@ ramenlog/
 
 ## 🎯 Phase별 핵심 학습 포인트
 
-| Phase | 앱(Frontend) 학습 | 백엔드 학습 |
-| --- | --- | --- |
-| 0 | Expo·TS 설정, 로컬 실행 | Spring 구조, 로컬 DB |
-| 1 | 지도 SDK, TanStack Query | 엔티티 설계, **N:M 중간 엔티티 매핑** |
-| 2 | 라멘 선택 상태, 내비게이션 파라미터 | 중간 엔티티 기준 조회, 조인 쿼리 |
-| 3 | SecureStore 토큰, 인증 헤더 | Spring Security, JWT |
-| 4 | 컴포넌트 설계, 폼 검증 | 연관관계 집계, `ShopRamen`별 평균 |
-| 5 | 카메라·이미지피커, 업로드 | MultipartFile, 외부 스토리지 |
+| Phase  | 앱(Frontend) 학습                   | 백엔드 학습                           |
+| ------ | ----------------------------------- | ------------------------------------- |
+| 0      | Expo·TS 설정, 로컬 실행             | Spring 구조, 로컬 DB                  |
+| 1      | 지도 SDK, TanStack Query            | 엔티티 설계, **N:M 중간 엔티티 매핑** |
+| 2      | 라멘 선택 상태, 내비게이션 파라미터 | 중간 엔티티 기준 조회, 조인 쿼리      |
+| 3      | SecureStore 토큰, 인증 헤더         | Spring Security, JWT                  |
+| 4      | 컴포넌트 설계, 폼 검증              | 연관관계 집계, `ShopRamen`별 평균     |
+| 5      | 카메라·이미지피커, 업로드           | MultipartFile, 외부 스토리지          |
 | 🚀 배포 | EAS 빌드, 실기기 설치, API URL 전환 | 클라우드 배포, 환경변수·시크릿, CI/CD |
-| 6 | 차트/시각화, 커스텀 링 UI | 집계·통계 쿼리, 파생 로직 |
-| 7 | 푸시 알림 수신 | 이벤트 도메인, Expo Push 연동 |
+| 6      | 차트/시각화, 커스텀 링 UI           | 집계·통계 쿼리, 파생 로직             |
+| 7      | 푸시 알림 수신                      | 이벤트 도메인, Expo Push 연동         |
 
 ---
 
