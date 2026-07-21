@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ramented
+    username: postgres
+    password: "L_Lin0208"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
