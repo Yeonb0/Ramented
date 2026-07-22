@@ -51,11 +51,13 @@
 - **expo-secure-store** — JWT 토큰 안전 저장
 - **expo-notifications** — 푸시 알림 *(Stretch)*
 
-> **지도 SDK 후보 (Phase 1에서 결정)**
->
-> - `react-native-maps` — 가장 표준적·문서 풍부. 단, 국내 POI/길찾기 데이터가 다소 약함
-> - 네이버 지도 RN SDK — 국내 데이터 강점
-> - 카카오맵을 WebView로 임베드 — 기존 카카오 SDK 재사용 가능하나 통합이 덜 매끄러움
+- **카카오맵 Web(JavaScript) SDK** — `react-native-webview`로 임베드 (Phase 1 결정)
+- **react-native-webview** — 카카오맵 WebView 컨테이너
+
+- > **지도 SDK 결정 (Phase 1): 카카오맵 Web SDK를 `react-native-webview`로 임베드**
+> 국내 POI 강점 + 기존 카카오 지식 재사용. RN 네이티브 브리지 대신 WebView라
+> 통합이 덜 매끄럽고 origin(도메인) 검증 이슈가 있으나 baseUrl로 해결.
+> (대안: react-native-maps → 국내 데이터 약함 / 네이버 RN SDK → 후순위)
 
 ### Backend (변경 없음)
 
@@ -243,7 +245,7 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 - [x] `Ramen`, `RamenShop`, `ShopRamen` 엔티티 및 리포지토리 작성
 - [x] N:M 연관관계 매핑 (중간 엔티티 `ShopRamen` 방식)
 - [x] `GET /api/shops` 구현 (라멘·가게·ShopRamen 시드 데이터 삽입)
-- [ ] **지도 SDK 결정** 및 연동 (react-native-maps / 네이버 / 카카오 WebView)
+- [x] **지도 SDK 결정** 및 연동 (react-native-maps / 네이버 / 카카오 WebView)
 - [ ] 가게 데이터를 지도 마커로 표시
 - [ ] TanStack Query로 fetch·캐싱 / API 응답 타입(`Shop`, `Ramen`) 정의
 
