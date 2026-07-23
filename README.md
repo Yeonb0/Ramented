@@ -246,8 +246,8 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true
 - [x] N:M 연관관계 매핑 (중간 엔티티 `ShopRamen` 방식)
 - [x] `GET /api/shops` 구현 (라멘·가게·ShopRamen 시드 데이터 삽입)
 - [x] **지도 SDK 결정** 및 연동 (react-native-maps / 네이버 / 카카오 WebView)
-- [ ] 가게 데이터를 지도 마커로 표시
-- [ ] TanStack Query로 fetch·캐싱 / API 응답 타입(`Shop`, `Ramen`) 정의
+- [x] 가게 데이터를 지도 마커로 표시
+- [x] TanStack Query로 fetch·캐싱 / API 응답 타입(`Shop`, `Ramen`) 정의
 
 ### ⬜ Phase 2 — 라멘별 탐색 & 필터
 
