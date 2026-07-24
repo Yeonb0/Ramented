@@ -1,6 +1,6 @@
-package com.ramented.backend.dto;
+package com.ramentaku.backend.dto;
 
-import com.ramented.backend.domain.RamenShop;
+import com.ramentaku.backend.domain.RamenShop;
 
 public record ShopResponse(
         Long id,

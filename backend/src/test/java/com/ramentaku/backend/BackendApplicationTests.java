@@ -1,4 +1,4 @@
-package com.ramented.backend;
+package com.ramentaku.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

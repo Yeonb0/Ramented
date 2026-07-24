@@ -1,9 +1,9 @@
-package com.ramented.backend.config;
+package com.ramentaku.backend.config;
 
-import com.ramented.backend.domain.*;
-import com.ramented.backend.repository.RamenRepository;
-import com.ramented.backend.repository.RamenShopRepository;
-import com.ramented.backend.repository.ShopRamenRepository;
+import com.ramentaku.backend.domain.*;
+import com.ramentaku.backend.repository.RamenRepository;
+import com.ramentaku.backend.repository.RamenShopRepository;
+import com.ramentaku.backend.repository.ShopRamenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

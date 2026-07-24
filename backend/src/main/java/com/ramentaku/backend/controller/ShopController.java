@@ -1,7 +1,7 @@
-package com.ramented.backend.controller;
+package com.ramentaku.backend.controller;
 
-import com.ramented.backend.dto.ShopResponse;
-import com.ramented.backend.service.ShopService;
+import com.ramentaku.backend.dto.ShopResponse;
+import com.ramentaku.backend.service.ShopService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

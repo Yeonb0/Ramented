@@ -1,6 +1,6 @@
-package com.ramented.backend.repository;
+package com.ramentaku.backend.repository;
 
-import com.ramented.backend.domain.RamenShop;
+import com.ramentaku.backend.domain.RamenShop;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 

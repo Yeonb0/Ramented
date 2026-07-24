@@ -1,8 +1,8 @@
-package com.ramented.backend.service;
+package com.ramentaku.backend.service;
 
-import com.ramented.backend.domain.RamenShop;
-import com.ramented.backend.dto.ShopResponse;
-import com.ramented.backend.repository.RamenShopRepository;
+import com.ramentaku.backend.domain.RamenShop;
+import com.ramentaku.backend.dto.ShopResponse;
+import com.ramentaku.backend.repository.RamenShopRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

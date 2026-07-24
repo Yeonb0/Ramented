@@ -1,4 +1,4 @@
-package com.ramented.backend.controller;
+package com.ramentaku.backend.controller;
 
 import java.util.Map;
 import org.springframework.web.bind.annotation.GetMapping;

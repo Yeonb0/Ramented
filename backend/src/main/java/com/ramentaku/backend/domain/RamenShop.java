@@ -1,4 +1,4 @@
-package com.ramented.backend.domain;
+package com.ramentaku.backend.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

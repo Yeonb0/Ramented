@@ -1,4 +1,4 @@
-package com.ramented.backend.domain;
+package com.ramentaku.backend.domain;
 
 public enum Tare {
     SHIO, // 소금

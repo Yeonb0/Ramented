@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/ramented
-    username: postgres
-    password: "L_Lin0208"
+    url: jdbc:postgresql://localhost:5432/${DB_NAME:ramentaku}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
