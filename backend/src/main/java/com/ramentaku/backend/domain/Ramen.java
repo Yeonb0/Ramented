@@ -17,6 +17,7 @@ public class Ramen {
     @Column(nullable = false)
     private String name; // 표시용 이름 ex) 돈코츠 라멘, 토리파이탄
 
+    // -- 6축 --
     @Enumerated(EnumType.STRING)
     private SoupBase soupBase; // 육수 재료 - 국물 없으면 null
 

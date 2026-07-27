@@ -5,6 +5,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,6 +19,18 @@ public class RamenShop {
     @Column(nullable = false)
     private String name; // 가게 이름
 
+    @Column(unique = true)
+    private String kakaoPlaceId; // 카카오맵 장소 ID (nullable)
+
+    @Enumerated(EnumType.STRING) 
+    @Column(nullable = false)
+    private DataSource dataSource = DataSource.USER; // SEED / PUBLIC_DATA / USER
+    
+    @Column(nullable = false)
+    private boolean verified = false;
+
+    private LocalDateTime closedAt; // null = 영업중
+    
     private Double latitude;
     private Double longitude;
     private String address;
