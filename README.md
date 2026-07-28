@@ -213,7 +213,7 @@ User
 Ramen                          // 라멘 종류 카탈로그 (여러 가게가 공유)
  ├─ id: Long (PK)
  ├─ name: String              // 관용명, 표시용. 예: "돈코츠 라멘", "토리파이탄 쇼유"
- ├─ soup: SoupBase?           // PORK, CHICKEN, BEEF, DUCK, SEAFOOD, VEGETABLE, MIXED, ETC (무국물이면 null)
+ ├─ soup: soupBase           // PORK, CHICKEN, BEEF, DUCK, SEAFOOD, VEGETABLE, MIXED, ETC (무국물이면 null)
  ├─ clarity: Clarity?         // SEITAN(청탕) / PAITAN(백탕)  (무국물이면 null)
  ├─ temperature: Temperature  // HOT / COLD                    (필수, 기본 HOT)
  ├─ tare: Tare                // SHIO, SHOYU, MISO, SPICY, ETC (필수)
@@ -229,8 +229,8 @@ RamenShop                      // 가게
  ├─ longitude: Double
  ├─ address: String
  ├─ region: String            // 예: "서울 마포구"
- ├─ openingHours: String      // 예: "11:30~22:00 (브레이크 15:00~17:00)"  ※ 구조화 검토 중
- └─ createdAt: DateTime
+ ├─ openingHours: String      // 예: "11:30~22:00 (브레이크 15:00~17:00)"  -> businessHoursRaw
+
 
 ShopRamen                      // 중간 엔티티: "이 가게가 파는 이 라멘"
  ├─ id: Long (PK)
@@ -392,9 +392,9 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true&sort=rating
 
 **⚙️ Backend**
 
-- [ ] `GET /api/shops` 응답에 `ramenCount`(취급 라멘 수) 추가 — 필터 없는 상태의 중립 마커 배지에 필요
+- [x] `GET /api/shops` 응답에 `ramenCount`(취급 라멘 수) 추가 — 필터 없는 상태의 중립 마커 배지에 필요
 - [ ] 라멘 관련 응답에 `tare` / `clarity` / `form` 노출 (마커 색·형태 파생용)
-- [ ] `openingHours` 구조화 여부 결정 — 상세 화면이 브레이크타임을 `danger` 색으로 분리 강조해야 함 (`openTime` / `closeTime` / `breakStart` / `breakEnd` 분리 검토)
+- [x] `openingHours` 구조화 여부 결정 — 상세 화면이 브레이크타임을 `danger` 색으로 분리 강조해야 함 (`openTime` / `closeTime` / `breakStart` / `breakEnd` 분리 검토)
 
 ### ⬜ Phase 2 — 라멘별 탐색 & 필터  ← **시안 ① 지도 홈**
 

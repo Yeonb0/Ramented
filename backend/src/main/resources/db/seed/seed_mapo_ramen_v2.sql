@@ -54,7 +54,7 @@ INSERT INTO ramen (id, name, soup_base, clarity, temperature, tare, form, style,
  (19, '아부라소바',       NULL,      NULL,     'HOT',  'SHOYU', 'ABURASOBA', NULL,      '기름 + 타래에 면만 비빔'),
  (20, '냉라멘(히야시)',   'SEAFOOD', 'SEITAN', 'COLD', 'SHOYU', 'RAMEN',     NULL,      '차갑게 먹는 여름 한정 라멘');
 
--- 10(삿포로), 14(이에케), 20(냉라멘)은 연결된 가게가 0곳입니다.
+-- 4(토리파이탄 쇼유), 10(삿포로), 14(이에케), 20(냉라멘)은 연결된 가게가 0곳입니다.
 -- Phase 2에서 "결과 없음" 상태 UI를 테스트하기 위해 일부러 남긴 것입니다.
 
 
