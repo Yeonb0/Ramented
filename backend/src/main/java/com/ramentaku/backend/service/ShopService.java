@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class ShopService {
 
     private final RamenShopRepository ramenShopRepository;
-    private final ShopRamenRepository shopRamenRepository;   // ← 주입 추가
+    private final ShopRamenRepository shopRamenRepository; // ← 주입 추가
 
     @Transactional(readOnly = true)
     public List<ShopResponse> getShops(String region, Sort sort) {
@@ -41,8 +41,7 @@ public class ShopService {
                     return ShopResponse.from(
                             shop,
                             c == null ? 0L : c.getRamenCount(),
-                            c == null ? 0L : c.getMenuCount()
-                    );
+                            c == null ? 0L : c.getMenuCount());
                 })
                 .toList();
     }

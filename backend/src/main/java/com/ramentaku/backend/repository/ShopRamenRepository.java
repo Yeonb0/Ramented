@@ -29,4 +29,22 @@ public interface ShopRamenRepository extends JpaRepository<ShopRamen, Long> {
         long getRamenCount();
         long getMenuCount();
     }
+
+    /**
+     * 라멘별로 그걸 파는 가게 수. B-3의 countGroupByShop 과 정확히 대칭 구조다.
+     * 칩 UI가 "파는 곳 0" 인 라멘을 흐리게 처리하거나 숨기는 데 쓴다.
+     * 시드에는 삿포로 미소·이에케·냉라멘 3종이 의도적으로 0곳이다.
+     */
+    @Query("""
+        select sr.ramen.id             as ramenId,
+                count(distinct sr.shop.id) as shopCount
+        from ShopRamen sr
+        group by sr.ramen.id
+    """)
+    List<RamenShopCount> countShopsGroupByRamen();
+
+    interface RamenShopCount {
+        Long getRamenId();
+        long getShopCount();
+    }
 }

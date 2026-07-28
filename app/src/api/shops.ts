@@ -9,8 +9,11 @@ export type Shop = {
   longitude: number;
   address: string;
   region: string;
-  businessHours: string;
+  businessHoursRaw: string | null;
   description: string;
+  ramenCount: number;
+  menuCount: number;
+  instagramHandle: string | null;
 };
 
 export function fetchShops(): Promise<Shop[]> {

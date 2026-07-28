@@ -38,16 +38,17 @@ public class RamenShop {
     private Double longitude;
     private String address;
     private String region; 
-    private String businessHours;
     private String description;
+    private String businessHoursRaw;
+    private String instagramHandle;
 
-    public RamenShop(String name, Double latitude, Double longitude, String address, String region, String businessHours, String description) {
+    public RamenShop(String name, Double latitude, Double longitude, String address, String region, String businessHoursRaw, String description) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
         this.address = address;
         this.region = region;
-        this.businessHours = businessHours;
+        this.businessHoursRaw = businessHoursRaw;
         this.description = description;
     }
 }

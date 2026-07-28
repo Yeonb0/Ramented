@@ -77,9 +77,9 @@ type OpenStateSource = 'SCHEDULE' | 'REPORT' | 'OWNER';
 라멘 항목에 **enum 원문**을 그대로 넣는다.
 
 ```ts
-tare:    'SHIO' | 'SHOYU' | 'MISO';
+tare:    'SHIO' | 'SHOYU' | 'MISO' | 'SPICY';   // ⚠️ SPICY 색 미정 (시안 발주 필요)
 clarity: 'PAITAN' | 'SEITAN' | null;   // 무국물이면 null
-form:    'RAMEN' | 'TSUKEMEN' | 'MAZESOBA';
+form:    'RAMEN' | 'TSUKEMEN' | 'MAZESOBA' | 'ABURASOBA';  // ⚠️ ABURASOBA 마크 미정
 ```
 
 ### 왜 원문 enum인가

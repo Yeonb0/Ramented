@@ -9,10 +9,11 @@ public record ShopResponse(
         Double longitude,
         String address,
         String region,
-        String businessHours,
+        String businessHoursRaw,
+        String instagramHandle,
         String description,
-        long ramenCount,   // 취급 라멘 종류 수 — 중립 마커 배지, ==1 이면 전문점
-        long menuCount     // 메뉴 수 — 가게 상세 "취급 라멘 N" 섹션
+        long ramenCount, // 취급 라멘 종류 수 — 중립 마커 배지, ==1 이면 전문점
+        long menuCount // 메뉴 수 — 가게 상세 "취급 라멘 N" 섹션
 ) {
     public static ShopResponse from(RamenShop shop, long ramenCount, long menuCount) {
         return new ShopResponse(
@@ -22,10 +23,10 @@ public record ShopResponse(
                 shop.getLongitude(),
                 shop.getAddress(),
                 shop.getRegion(),
-                shop.getBusinessHours(),
+                shop.getBusinessHoursRaw(),
+                shop.getInstagramHandle(),
                 shop.getDescription(),
                 ramenCount,
-                menuCount
-        );
+                menuCount);
     }
 }
