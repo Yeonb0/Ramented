@@ -7,3 +7,8 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+app:
+  seed:
+    # 시드는 db/seed/*.sql 로 단일화. DataSeeder 는 스키마 초기화 직후에만 켠다.
+    enabled: false

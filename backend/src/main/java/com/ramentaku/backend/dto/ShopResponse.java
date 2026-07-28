@@ -10,10 +10,11 @@ public record ShopResponse(
         String address,
         String region,
         String businessHours,
-        String description
+        String description,
+        long ramenCount,   // 취급 라멘 종류 수 — 중립 마커 배지, ==1 이면 전문점
+        long menuCount     // 메뉴 수 — 가게 상세 "취급 라멘 N" 섹션
 ) {
-    // 엔티티 -> DTO 변환을 한 곳에 모아두는 정적 팩토리
-    public static ShopResponse from(RamenShop shop) {
+    public static ShopResponse from(RamenShop shop, long ramenCount, long menuCount) {
         return new ShopResponse(
                 shop.getId(),
                 shop.getName(),
@@ -22,7 +23,9 @@ public record ShopResponse(
                 shop.getAddress(),
                 shop.getRegion(),
                 shop.getBusinessHours(),
-                shop.getDescription()
+                shop.getDescription(),
+                ramenCount,
+                menuCount
         );
     }
 }

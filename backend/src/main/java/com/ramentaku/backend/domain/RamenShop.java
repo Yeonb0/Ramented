@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDateTime;
 
@@ -24,9 +25,11 @@ public class RamenShop {
 
     @Enumerated(EnumType.STRING) 
     @Column(nullable = false)
+    @ColumnDefault("'USER'")
     private DataSource dataSource = DataSource.USER; // SEED / PUBLIC_DATA / USER
     
     @Column(nullable = false)
+    @ColumnDefault("false")
     private boolean verified = false;
 
     private LocalDateTime closedAt; // null = 영업중
