@@ -63,12 +63,21 @@
 
 ### Backend (변경 없음)
 
-- **Java 25 + Spring Boot 3.x**
+### Backend
+
+- **Java 25 + Spring Boot 4.1**
 - **Spring Web** — REST API
 - **Spring Data JPA** — ORM
-- **Spring Security + JWT** — 인증/인가
+- **Spring Security + JWT** — 인증/인가 *(Phase 3)*
 - **PostgreSQL** — 데이터베이스
 - (선택) **AWS S3** 또는 **Cloudinary** — 이미지 스토리지
+
+> ⚠️ **Spring Boot 4.x 주의** — autoconfigure 모듈이 잘게 쪼개지면서 테스트 슬라이스 패키지가 전부 이동했다.
+> `@DataJpaTest` → `org.springframework.boot.data.jpa.test.autoconfigure`
+> `TestEntityManager` → `org.springframework.boot.jpa.test.autoconfigure` (`data.` 없음)
+> `@WebMvcTest` → `org.springframework.boot.webmvc.test.autoconfigure`
+> 각각 `spring-boot-starter-data-jpa-test` / `spring-boot-starter-webmvc-test` 의존성이 따로 필요하다.
+> 인터넷의 Spring Boot 3 예제를 그대로 붙이면 컴파일이 안 된다.
 
 ### DevOps / 배포
 
@@ -138,14 +147,18 @@ star #D9963F · danger #B5503F
 
 색은 라멘 **이름**이 아니라 **타래 × 탁도** 조합으로 결정한다. (프런트가 이름 문자열로 색을 추론하지 않도록 API가 `tare`·`clarity`·`form`을 그대로 내려준다.)
 
-| 조합 | fill | stroke | mark | 해당 라멘 |
+| 조합 | fill | stroke | mark | 해당 라멘 (시드 기준 가게 수) |
 | --- | --- | --- | --- | --- |
-| 시오 × 백탕 | `#DBD0BA` | `#85694A` | `#5E4835` | 돈코츠 라멘 |
-| 시오 × 청탕 | `#6E9BB8` | `#4F7A96` | `#FDFAF4` | 시오 츠케멘 |
-| 쇼유 × 백탕 | `#E0CBA0` | `#A9884E` | `#5E4835` | 토리파이탄 쇼유 |
-| 쇼유 × 청탕 | `#C08A2E` | `#96690F` | `#FDFAF4` | 마제소바 |
-| 미소 × 백탕 | `#D9B6A6` | `#A9705A` | `#6E3A28` | 미소 라멘 |
-| 미소 × 청탕 | `#A8503A` | `#83381F` | `#FDFAF4` | (미배정) |
+| 시오 × 백탕 | `#DBD0BA` | `#85694A` | `#5E4835` | 돈코츠 라멘 (5곳) |
+| 시오 × 청탕 | `#6E9BB8` | `#4F7A96` | `#FDFAF4` | 토리세이탄 시오 (4곳) |
+| 쇼유 × 백탕 | `#E0CBA0` | `#A9884E` | `#5E4835` | 어개 츠케멘 (6곳) |
+| 쇼유 × 청탕 | `#C08A2E` | `#96690F` | `#FDFAF4` | 토리세이탄 쇼유 (9곳) |
+| 미소 × 백탕 | `#D9B6A6` | `#A9705A` | `#6E3A28` | 미소 라멘 (1곳) |
+| 미소 × 청탕 | `#A8503A` | `#83381F` | `#FDFAF4` | (미배정 · 0곳) |
+| **매운 × 백탕** | ❌ 미정 | | | 탄탄멘 · 매운 라멘 (6곳) |
+| **매운 × 청탕** | ❌ 미정 | | | 타이완 마제소바 (3곳) |
+
+- 내부 마크는 **형태(`Form`)** 로 구분: `RAMEN` = 원 / `TSUKEMEN` = 둥근 사각 / `MAZESOBA` = 마름모 / `ABURASOBA` = ❌ 미정
 
 - 백탕 계열은 아이보리·회색 배경에서 흐려지므로 **stroke는 장식이 아니라 가독성 장치**다. 절대 빼지 않는다.
 - 내부 마크는 **형태(`Form`)** 로 구분: `RAMEN` = 원 / `TSUKEMEN` = 둥근 사각 / `MAZESOBA` = 마름모.
@@ -182,7 +195,17 @@ star #D9963F · danger #B5503F
 
 ### 미결 이슈 (해결 전까지 구현 보류)
 
-- **백탕 3색 구분도** — 나란히 두면 구분되지만 지도에 흩어지면 시오 백탕(`#DBD0BA`)과 미소 백탕(`#D9B6A6`)이 거의 같은 색으로 읽힌다. 현재 유일한 단서는 stroke. Phase 2에서 **실기기 검수** 후 필요 시 fill 조정.
+### 미결 이슈 (해결 전까지 구현 보류)
+
+- **`Tare.SPICY` 색 · `Form.ABURASOBA` 마크 미정** — 시드 20종 중 SPICY 3종(가게 링크 9개), ABURASOBA 1종(2개).
+  현재는 `markerNeutral` 로 폴백되는데, 중립색은 이미 "필터에서 제외된 가게"의 의미로 쓰고 있어 **두 상태가 시각적으로 구분되지 않는다.**
+  Phase 2 착수 전 `SPICY × PAITAN` / `SPICY × SEITAN` 색 2칸과 ABURASOBA 마크 1개를 시안에서 받아야 한다.
+
+- **백탕 3색 구분도** — 나란히 두면 구분되지만 지도에 흩어지면 시오 백탕(`#DBD0BA`)과 미소 백탕(`#D9B6A6`)이 거의 같은 색으로 읽힌다.
+  현재 유일한 단서는 stroke. Phase 2에서 **실기기 검수** 후 필요 시 fill 조정.
+
+- **미소 계열 시드 부족** — 위 검수를 지금은 할 수 없다. 미소 백탕이 지도에 1곳, 미소 청탕은 0곳이라 비교 대상이 없다.
+  Phase 2 전에 미소 라멘 링크를 서너 개 추가하거나, 검수 항목을 데이터 확보 이후로 미룬다.
 
 ### 결정 로그
 
@@ -213,7 +236,7 @@ User
 Ramen                          // 라멘 종류 카탈로그 (여러 가게가 공유)
  ├─ id: Long (PK)
  ├─ name: String              // 관용명, 표시용. 예: "돈코츠 라멘", "토리파이탄 쇼유"
- ├─ soup: soupBase           // PORK, CHICKEN, BEEF, DUCK, SEAFOOD, VEGETABLE, MIXED, ETC (무국물이면 null)
+ ├─ soupBase: SoupBase?       // PORK, CHICKEN, BEEF, DUCK, SEAFOOD, VEGETABLE, MIXED, ETC (무국물이면 null)
  ├─ clarity: Clarity?         // SEITAN(청탕) / PAITAN(백탕)  (무국물이면 null)
  ├─ temperature: Temperature  // HOT / COLD                    (필수, 기본 HOT)
  ├─ tare: Tare                // SHIO, SHOYU, MISO, SPICY, ETC (필수)
@@ -225,11 +248,17 @@ Ramen                          // 라멘 종류 카탈로그 (여러 가게가 �
 RamenShop                      // 가게
  ├─ id: Long (PK)
  ├─ name: String
+ ├─ kakaoPlaceId: String?     // 카카오 장소 ID. 여러 소스를 병합할 때 중복을 막는 upsert 키
+ ├─ dataSource: DataSource    // SEED / PUBLIC_DATA / USER (DB 기본값 USER)
+ ├─ verified: boolean         // 사람이 검수했는지 (DB 기본값 false)
+ ├─ closedAt: DateTime?       // null = 영업중. 폐업은 삭제가 아니라 소프트 삭제
  ├─ latitude: Double
  ├─ longitude: Double
  ├─ address: String
  ├─ region: String            // 예: "서울 마포구"
- ├─ openingHours: String      // 예: "11:30~22:00 (브레이크 15:00~17:00)"  -> businessHoursRaw
+ ├─ businessHoursRaw: String  // 영업시간 원문. 예: "11:00~15:00, 17:00~20:00 (수 휴무)"
+ ├─ instagramHandle: String?  // '@' 제외. 영업 변동 확인 링크아웃용
+ └─ description: String
 
 
 ShopRamen                      // 중간 엔티티: "이 가게가 파는 이 라멘"
@@ -392,9 +421,11 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true&sort=rating
 
 **⚙️ Backend**
 
-- [x] `GET /api/shops` 응답에 `ramenCount`(취급 라멘 수) 추가 — 필터 없는 상태의 중립 마커 배지에 필요
-- [ ] 라멘 관련 응답에 `tare` / `clarity` / `form` 노출 (마커 색·형태 파생용)
-- [x] `openingHours` 구조화 여부 결정 — 상세 화면이 브레이크타임을 `danger` 색으로 분리 강조해야 함 (`openTime` / `closeTime` / `breakStart` / `breakEnd` 분리 검토)
+- [x] `GET /api/shops` 응답에 `ramenCount`(취급 라멘 종류 수) + `menuCount`(메뉴 수) 추가 — 필터 없는 상태의 중립 마커 배지에 필요
+- [x] `GET /api/ramens` 최소 버전 — 6축 값을 enum 이름 문자열로 노출 (마커 색·형태 파생용) + `shopCount`
+- [x] 영업시간 구조화 결정 — 원문(`businessHoursRaw`) 항상 보존 + 요일별 테이블은 Phase 4. 상세는 `docs/api-contract.md`
+- [x] `instagramHandle` 필드 추가 (영업 변동 링크아웃용)
+- [x] 집계 쿼리·응답 계약 테스트 (`@DataJpaTest` + `@WebMvcTest`, H2)
 
 ### ⬜ Phase 2 — 라멘별 탐색 & 필터  ← **시안 ① 지도 홈**
 

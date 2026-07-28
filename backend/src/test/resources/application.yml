@@ -1,0 +1,31 @@
+# backend/src/test/resources/application.yml
+#
+# 테스트 전용 설정. 같은 이름의 파일이 test 클래스패스에 있으면
+# main 쪽 application.yml 을 완전히 가린다.
+#
+# 이렇게 분리하는 이유:
+#   1. main 설정의 password: ${DB_PASSWORD} 는 환경변수가 없으면
+#      컨텍스트 기동 자체가 실패한다. CI 에서 바로 터진다.
+#   2. 테스트가 로컬 개발 DB(ramentaku)를 건드리면 안 된다.
+#      시드 30곳이 테스트 픽스처와 섞이면 단정문이 전부 무너진다.
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop   # 테스트마다 깨끗한 스키마
+    show-sql: false           # 단정문이 로그에 묻히지 않게
+
+app:
+  seed:
+    enabled: false            # DataSeeder 가 픽스처를 오염시키지 않도록
+
+# ⚠️ H2 의 한계
+#   이 설정은 JPQL·매핑·직렬화를 검증한다.
+#   Postgres 고유 동작(ddl-auto 가 NOT NULL 컬럼 추가에 실패하는 것,
+#   트랜잭션 abort 상태 25P02 등)은 잡지 못한다.
+#   마이그레이션 스크립트 검증은 여전히 실제 Postgres 에서 해야 한다.
