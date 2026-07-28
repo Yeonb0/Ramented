@@ -182,10 +182,17 @@ star #D9963F · danger #B5503F
 
 ### 미결 이슈 (해결 전까지 구현 보류)
 
-- **탭 개수 불일치** — 화면 시안은 4탭(지도·기록·라멘·프로필), 아이콘 세트는 3종(지도·내 기록·프로필). "라멘" 탭을 살릴지(→ 아이콘 1개 추가 필요) 3탭으로 줄일지 Phase 1.5에서 확정.
 - **백탕 3색 구분도** — 나란히 두면 구분되지만 지도에 흩어지면 시오 백탕(`#DBD0BA`)과 미소 백탕(`#D9B6A6`)이 거의 같은 색으로 읽힌다. 현재 유일한 단서는 stroke. Phase 2에서 **실기기 검수** 후 필요 시 fill 조정.
-- **영업시간 표현** — 상세 화면은 브레이크타임을 `danger` 색으로 강조해야 하는데, 현재 DB는 문자열 한 칸. 구조화 여부를 Phase 4 전에 결정.
 
+### 결정 로그
+
+- **탭 구성 → 3탭** (지도 · 내 기록 · 프로필). "라멘" 탭은 지도 홈의 칩 필터와 역할이 겹쳐 제외.
+  라멘 상세는 탭이 아니라 `/ramens/[id]` push 라우트로. 스탬프·순례는 기록 탭 하위 세그먼트.
+- **영업시간 → 원문 유지 + 구조화 병행.** `businessHoursRaw` 는 항상,
+  `breakStart`/`breakEnd` 는 파싱 가능할 때만. 판정은 서버가 `openState` 로 내려줌.
+  인스타 자동 수집은 불가(공식 API가 제3자 계정 스토리를 제공하지 않음) → 유저 제보 + 링크아웃.
+  상세는 `docs/api-contract.md`.
+  
 ---
 
 ## 🗂 데이터 모델
@@ -372,8 +379,8 @@ GET /api/ramens/12/shops?region=마포구&specialistOnly=true&sort=rating
 
 **🎨 Frontend**
 
-- [ ] `app/src/theme/` — `colors.ts` / `typography.ts` / `radius.ts` / `spacing.ts`. 화면 코드에 헥사값 하드코딩 금지
-- [ ] 나눔스퀘어라운드 **ttf/otf 확보** 후 `expo-font` 로딩 (웹폰트 woff2는 RN에서 사용 불가 — 라이선스 확인 포함)
+- [x] `app/src/theme/` — `colors.ts` / `typography.ts` / `radius.ts` / `spacing.ts`. 화면 코드에 헥사값 하드코딩 금지
+- [x] 나눔스퀘어라운드 **ttf/otf 확보** 후 `expo-font` 로딩 (웹폰트 woff2는 RN에서 사용 불가 — 라이선스 확인 포함)
 - [ ] `react-native-svg` 설치 → 아이콘 세트를 `app/src/components/icons/` 컴포넌트로 이식 (`size` / `color` prop, `currentColor` → `stroke={color}`)
 - [ ] 공통 프리미티브: `Card`(1.5px border · radius 16 · **그림자 없음**), `Chip`, `Toggle`, `StarRating`, `SectionHeader`, `StripePlaceholder`
 - [ ] 앱 셸 — 갈색 헤더 + 하단 탭바. SafeArea까지 `#6A4729` 확장, **바에 라운드 금지**
