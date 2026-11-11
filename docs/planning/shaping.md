@@ -2,7 +2,7 @@
 planning: true
 shaping: true
 artifact_type: shaping
-status: decision-ready
+status: selected
 feeds:
   - breadboarding
 ---
@@ -11,7 +11,7 @@ feeds:
 
 ## Working mode
 - Profile : collaborative
-- Current move : appetite 수락 → 선택
+- Current move : 선택 완료 → selected-design breadboard
 
 ## Frame source
 - `docs/planning/frame.md` (accepted)
@@ -43,7 +43,7 @@ feeds:
 수락 근거 : 관리자님 2026-11-11 19:59 ("둘다 맞아" — R6 Nice-to-have, R8 수락)
 
 ## Appetite
-- Authority : **Working** — 관리자님 수락 필요
+- Authority : **Accepted** (관리자님 2026-11-11 20:02 "그래")
 - 관리자님 답변 : 정해진 기한 없음, 시간 나는 대로
 - 기한이 없으므로 **시간 대신 범위를 고정**한다 (아래 cut line). 범위가 고정돼 있어야 "다 됐다"가 정의되고, 끝없이 늘어나지 않는다
 - 제안 cut line — 첫 공개 버전 (v2.0) 에 들어가는 것 :
@@ -106,7 +106,7 @@ CURRENT에서 드러난 사실 :
 |---|---|:---:|
 | D1 | 첫 지역은 운영자가 큐레이션 (= A1) | |
 | D2 | 이후 속성 확인 · 가게 등록은 방문자 태깅 (= B1 ~ B3). 시드 값도 태깅으로 확인 · 수정됨 | |
-| D3 | 휴무 · 이벤트 : 사용자 제보 (24시간 유효) + 인스타 링크아웃 | |
+| D3 | 휴무 · 이벤트 : 사용자 제보 (24시간 유효) + 인스타 링크아웃. 제보할 때 근거를 고른다 : "직접 가봄" / "인스타 (게시물 · 스토리) 에서 봄". 인스타 사용자가 본 스토리를 비사용자에게 옮겨주는 통로 | |
 | D4 | **(선택 부품)** 가게가 인스타 프로페셔널 계정이면 최신 피드 게시물을 앱에서 보여준다 (Business Discovery) | ⚠️ |
 
 ⚠️ D4 : 스토리는 못 가져온다 (휴무 공지가 주로 스토리라면 효과 작음). Meta 앱 검수, 운영자 프로페셔널 계정, 게시물 표시 약관 확인이 필요하다. 캡션을 파싱해 "휴무"를 판정하지 않고 원문 그대로 보여주는 것까지만.
@@ -170,6 +170,12 @@ CURRENT에서 드러난 사실 :
 - 생성하지 않은 가족 : 외부 장소 데이터의 메뉴판 텍스트로 속성 추정 — 이름 문자열 파싱 금지 원칙 · M1과 충돌하여 제외
 
 ## Decision
-- Status : decision-ready
-- 관리자님 결정 필요 : appetite (cut line) 수락, 방향 선택
-- 선택 후 할 일 : selected-design breadboard 로 D를 구체 동작으로 정리
+- Status : **selected** (관리자님 2026-11-11 20:02)
+- Chosen direction : **D** (시드로 시작 + 방문자 태깅으로 확장) + 공통 부품 X1 ~ X5
+- D4 (인스타 피드 앱 내 표시) : cut line 밖. 관리자님 관찰상 가게들은 휴무 · 이벤트를 **스토리**에도 올리는데 Business Discovery는 스토리를 다루지 않으므로, D4만으로는 R2를 채우지 못한다
+- Rationale : Must-have R7 · R8을 동시에 통과하는 유일한 후보. S-1로 방문자 태깅의 근거 확보
+- D3 보강 : 스토리 문제는 "인스타를 쓰는 사용자가 본 것을 앱에 제보"로 메운다. 제보 근거 (직접 가봄 / 인스타에서 봄) 가 확신도 문구 (R3) 의 재료가 된다
+- Cuts / non-goals : 등급 · 랭킹, 인증샷, 사용자 가게 · 메뉴 등록, 이벤트 상세, D4, 사장님 참여 (C)
+- Accepted uncertainty : 숨은 다시는 태깅으로도 "모름"으로 남을 수 있음. 제보가 없으면 영업 상태는 "모름"
+- Remaining unknowns : 시드 지역 선정, 태깅 다수결의 최소 응답 수
+- Next : selected-design breadboard
