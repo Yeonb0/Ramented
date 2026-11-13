@@ -3,7 +3,7 @@ planning: true
 shaping: true
 artifact_type: breadboard
 mode: selected-design
-status: draft
+status: accepted
 feeds:
   - slicing
 ---

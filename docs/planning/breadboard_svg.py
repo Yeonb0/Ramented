@@ -134,6 +134,6 @@ colors = [FG, DIM, ACC, SYS, STO, WARN]
 defs = ''.join(f'<marker id="ah{c[1:]}" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="{c}"/></marker><marker id="ahd{c[1:]}" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="{c}"/></marker>' for c in colors)
 head = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="NanumSquareRound, Pretendard, sans-serif">', f'<defs>{defs}</defs>', f'<rect width="{W}" height="{H}" fill="{BG}"/>']
 title = []
-t(30, 34, '라멘타쿠 v2.0 — Breadboard (selected-design, draft)', 18, FG, 'bold', layer=title)
+t(30, 34, '라멘타쿠 v2.0 — Breadboard (selected-design, accepted)', 18, FG, 'bold', layer=title)
 t(30, 54, '실선 = 동작 흐름 · 점선 = 데이터 / 보이는 결과 · 위 = 화면, 아래 = 서버 계산과 저장소', 12, DIM, layer=title)
 open(sys.argv[1], 'w', encoding='utf-8').write('\n'.join(head + title + lines + boxes + texts + ['</svg>']))
