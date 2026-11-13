@@ -200,7 +200,7 @@ export const button = {
    - 본문 글자 (`text`, `textSecondary`) / `paper` : 4.5 : 1 이상
    - `onPrimary` / `primary`, `onRibbon` / `ribbon`, `onBar.text` / `bar` : 4.5 : 1 이상
    - 펜 선 (`ink`) · `slotEmpty` / `paper` : 3 : 1 이상 (선 · 아이콘 기준)
-4. 앱에는 테스트 러너가 없어서 이번에는 jest를 들이지 않고 이 스크립트에 넣는다
+4. 대비 검사 (3번) 는 이 스크립트가 아니라 jest 테스트 `app/src/theme/__tests__/contrast.test.ts` 에 둔다. `palette.ts` 가 TS 파일이라 `.mjs` 스크립트에서 바로 읽을 수 없기 때문이다 (Phase 1 구현 중 변경, `jest-expo` 도입)
 
 ## 8. Phase 1에서 만드는 범위
 
@@ -230,7 +230,7 @@ export const button = {
 - 문서 위치를 `docs/superpowers/specs/` 가 아니라 README가 가리키는 `docs/design/` 에 뒀다
 - 펜 선과 갈색 바를 같은 색 (`shoyu.80`) 으로 합쳤다
 - 타레 × 청탁 마커 색은 v2.0에서 뺐다 (breadboard 세 모양 기준). 결정이 바뀌면 팔레트 계열에서 다시 고른다
-- 대비 검사는 jest 대신 `check-tokens.mjs` 에 넣었다
+- 대비 검사는 처음에 `check-tokens.mjs` 에 넣으려 했으나, TS 팔레트를 읽기 위해 `jest-expo` 를 들이고 테스트로 옮겼다
 - 선택된 마커 모양 (한 단계 크게 + `fillSoft`) 은 breadboard에 없는 시각 처리라 제안값이다
 - 대비 기준 미달인 시작값을 한 단계씩 진하게 바꿨다 (주요 버튼 · 리본 `shoyu.70`, 빈 칸 점선 `shoyu.60`, 영업 중 글자 `negi.70`)
 - "영업 종료"도 브레이크 · 정기 휴무와 같이 `danger` 색으로 묶었다 (지금 갈 수 없음이라는 같은 뜻)
