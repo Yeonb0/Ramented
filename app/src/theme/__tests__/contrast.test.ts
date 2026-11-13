@@ -2,8 +2,8 @@ import { contrastRatio, ContrastPairs } from '../contrast';
 import { colors } from '../colors';
 
 test('contrastRatio 기준값', () => {
-  expect(contrastRatio('#000000', '#FFFFFF')).toBeCloseTo(21, 1);
-  expect(contrastRatio('#3B2C21', '#FDF8EE')).toBeCloseTo(12.65, 1);
+  expect(contrastRatio('#000000', '#FFFFFF')).toBeCloseTo(21, 1); // tokens-ok : 대비 공식 검증용 기준값
+  expect(contrastRatio('#3B2C21', '#FDF8EE')).toBeCloseTo(12.65, 1); // tokens-ok
 });
 
 test.each(ContrastPairs)('$name 대비 $min 이상', ({ fg, bg, min }) => {

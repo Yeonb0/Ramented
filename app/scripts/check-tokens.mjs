@@ -1,7 +1,7 @@
 // app/scripts/check-tokens.mjs
 //
 // 디자인 토큰 가드.
-//   1) theme/ 밖에서 헥사 색상값을 직접 쓰는 곳
+//   1) palette.ts 밖에서 헥사 색상값을 직접 쓰는 곳
 //   2) 그림자(shadow* / elevation)를 쓰는 곳  ← 시안 규칙: 그림자 금지
 //
 // 실행:  npm run check:tokens
@@ -27,8 +27,9 @@ const SKIP_DIRS = new Set([
   'scripts',
 ]);
 
-// 토큰 정의 파일 — 여기서는 헥사값이 정상이다
-const ALLOW_PREFIXES = [path.join('src', 'theme')];
+// 헥사값이 허용되는 유일한 파일 — 1층 국물 팔레트
+// 2 · 3층 (colors · marker · components) 도 헥사값 대신 palette 를 참조해야 한다
+const ALLOW_FILES = [path.join('src', 'theme', 'palette.ts')];
 
 const EXTS = new Set(['.ts', '.tsx']);
 
@@ -38,13 +39,13 @@ const RULES = [
     // #RGB / #RRGGBB / #RRGGBBAA
     re: /#[0-9A-Fa-f]{8}\b|#[0-9A-Fa-f]{6}\b|#[0-9A-Fa-f]{3}\b/,
     label: '토큰 밖 헥사 색상값',
-    hint: "src/theme 에서 import 해서 쓰세요.  import { colors } from '../theme'",
+    hint: "색은 palette.ts 에만 쓰고, 화면에서는 import { colors } from '../theme' 로 가져오세요.",
   },
   {
     id: 'shadow',
     re: /\b(shadowColor|shadowOffset|shadowOpacity|shadowRadius|elevation)\b/,
     label: '그림자 속성',
-    hint: '깊이는 면 + 아웃라인으로만 냅니다. borderWidth.default + colors.borderStrong 조합을 쓰세요.',
+    hint: '깊이는 면 + 아웃라인으로만 냅니다. borderWidth.outline + colors.ink 조합을 쓰세요.',
   },
 ];
 
@@ -70,7 +71,7 @@ function walk(dir, acc = []) {
 }
 
 function isAllowed(relPath) {
-  return ALLOW_PREFIXES.some((prefix) => relPath.startsWith(prefix));
+  return ALLOW_FILES.includes(relPath);
 }
 
 const files = SCAN_DIRS.flatMap((d) => walk(path.join(ROOT, d)));
@@ -85,7 +86,7 @@ for (const file of files) {
     if (line.includes('tokens-ok')) continue;
 
     for (const rule of RULES) {
-      // 헥사 규칙만 theme/ 를 면제한다. 그림자는 어디서도 금지.
+      // 헥사 규칙만 palette.ts 를 면제한다. 그림자는 어디서도 금지
       if (rule.id === 'hex' && isAllowed(rel)) continue;
       if (!rule.re.test(line)) continue;
 
