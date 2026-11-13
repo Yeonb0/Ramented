@@ -31,14 +31,13 @@ export const noteSheetStyle: ViewStyle = {
   ...wobbleStyle(wobble.sheetTop),
 };
 
-// 버튼 ② — 아래 테두리만 두껍게. 그림자가 아니라 같은 펜 선 색의 두꺼운 선
-// 눌리면 아래 테두리가 줄어든 만큼 위 여백을 더해 면이 내려간다
-// transform 이 아니라 여백으로 내리므로 버튼이 차지하는 높이와 주변 레이아웃은 그대로다
+// 버튼 — 네 면 같은 두께의 펜 선. 아래만 두껍게 하면 그림자처럼 보여서 쓰지 않는다
+// 누른 느낌은 면 색을 한 단계 진하게 바꿔서 낸다 (레이아웃은 움직이지 않음)
 export type ButtonVariant = 'primary' | 'secondary';
 
 const ButtonFace = {
-  primary: { backgroundColor: colors.primary, labelColor: colors.onPrimary },
-  secondary: { backgroundColor: colors.paper, labelColor: colors.text },
+  primary: { backgroundColor: colors.primary, pressedColor: colors.primaryPressed, labelColor: colors.onPrimary },
+  secondary: { backgroundColor: colors.paper, pressedColor: colors.paperSunken, labelColor: colors.text },
 } as const;
 
 export function getButtonStyle(
@@ -46,14 +45,11 @@ export function getButtonStyle(
   pressed: boolean,
 ): { container: ViewStyle; labelColor: string } {
   const Face = ButtonFace[variant];
-  const Sink = borderWidth.buttonBase - borderWidth.outline;
   return {
     container: {
-      backgroundColor: Face.backgroundColor,
+      backgroundColor: pressed ? Face.pressedColor : Face.backgroundColor,
       borderColor: colors.ink,
       borderWidth: borderWidth.outline,
-      borderBottomWidth: pressed ? borderWidth.outline : borderWidth.buttonBase,
-      marginTop: pressed ? Sink : 0,
       minHeight: touchTarget.min,
       paddingHorizontal: spacing.xl,
       paddingVertical: spacing.sm,
@@ -65,19 +61,18 @@ export function getButtonStyle(
   };
 }
 
-// 리본 — 양 끝이 V자로 파인 제목 띠 (SVG)
-export const ribbon = {
-  height: 32,
-  notchRatio: 0.25, // V자 홈 깊이 = 기본 높이 (height) × 0.25. 글자가 커져 리본이 높아져도 깊이는 고정
-  strokeWidth: borderWidth.inner,
-  paddingHorizontal: spacing.xl,
-  fill: colors.ribbon,
-  stroke: colors.ink,
-} as const;
+// 리본 — 제목 띠. 살짝 삐뚤어진 네모
+// 가게 이름 옆 지점명 (홍대점 등) 은 띠 안에 넣지 않고 띠 아래에 작게 따로 쓴다
+export const ribbonMinHeight = 32;
 
-/** 리본 외곽 path. 폭 · 높이는 실제 렌더 크기 (px) */
-export function ribbonPath(width: number, height: number): string {
-  const D = ribbon.height * ribbon.notchRatio;
-  const Mid = height / 2;
-  return `M0 0 H${width} L${width - D} ${Mid} L${width} ${height} H0 L${D} ${Mid} Z`;
-}
+export const ribbonStyle: ViewStyle = {
+  alignSelf: 'center',
+  backgroundColor: colors.ribbon,
+  borderColor: colors.ink,
+  borderWidth: borderWidth.inner,
+  minHeight: ribbonMinHeight,
+  justifyContent: 'center',
+  paddingHorizontal: spacing.lg,
+  paddingVertical: spacing.xs,
+  ...wobbleStyle(wobble.chip),
+};

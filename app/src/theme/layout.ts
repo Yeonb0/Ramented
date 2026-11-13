@@ -25,12 +25,10 @@ export const radius = {
 //   divider     구분선 (실선, colors.divider)
 //   inner       칩 · 칸 · 리본 같은 안쪽 요소
 //   outline     카드 · 시트 · 버튼 · 마커의 바깥 선
-//   buttonBase  버튼 ② 의 아래 테두리 (그림자가 아니라 두꺼운 선)
 export const borderWidth = {
   divider: 1,
   inner: 2,
   outline: 2.5,
-  buttonBase: 5,
 } as const;
 
 // 삐뚤어진 모서리 — 네 모서리 반경을 조금씩 달리해 손으로 그린 느낌을 낸다

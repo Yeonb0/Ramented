@@ -24,7 +24,8 @@ import { Ribbon } from '../src/components/Ribbon';
 import { StateView } from '../src/components/StateView';
 import { Text } from '../src/components/Text';
 
-const LongName = '라멘 멘야 산다이메 마포 본점 홍대입구역점';
+// 시드 30곳 중 가장 긴 이름 (지점명은 따로)
+const LongName = '한창희천하일면';
 const Markers = [buildMarkerSvg({ variant: 'default' }), buildMarkerSvg({ variant: 'selected' })];
 const noop = () => {};
 
@@ -91,11 +92,11 @@ export default function Styleguide() {
           <Text variant="body">카드 · 시트의 제목은 리본 띠에 쓴다.</Text>
         </NoteCard>
         <View style={styles.gap}>
-          <Ribbon label={LongName} numberOfLines={2} />
+          <Ribbon label={LongName} />
         </View>
       </Section>
 
-      <Section title="버튼 ②">
+      <Section title="버튼">
         <View style={styles.row}>
           <Button label="기록 남기기" onPress={noop} />
           <Button label="다시 시도" variant="secondary" onPress={noop} />
@@ -112,9 +113,9 @@ export default function Styleguide() {
 
       <Section title="미리보기 시트">
         <View style={styles.sheetStack}>
-          <PreviewSheet name="멘야 산다이메" tone="open" label="영업 중 · 정기 영업시간 기준" />
+          <PreviewSheet name="멘야산다이메" branch="홍대점" tone="open" label="영업 중 · 정기 영업시간 기준" />
           <PreviewSheet name="소월옥" tone="stop" label="브레이크 타임 · 정기 영업시간 기준" />
-          <PreviewSheet name={LongName} tone="unknown" label="모름" />
+          <PreviewSheet name={LongName} branch="망원점" tone="unknown" label="모름" />
         </View>
       </Section>
 
