@@ -36,9 +36,12 @@ export const ContrastPairs: ReadonlyArray<ContrastPair> = [
   { name: 'onRibbon', fg: colors.onRibbon, bg: colors.ribbon, min: 4.5 },
   { name: 'onBar.text', fg: onBar.text, bg: colors.bar, min: 4.5 },
   { name: 'onBar.textSecondary', fg: onBar.textSecondary, bg: colors.bar, min: 4.5 },
+  { name: 'onBar.chipSolidText', fg: onBar.chipSolidText, bg: onBar.chipSolidBg, min: 4.5 },
   { name: 'success', fg: colors.success, bg: colors.paper, min: 4.5 },
   { name: 'danger', fg: colors.danger, bg: colors.paper, min: 4.5 },
   // 선
   { name: 'ink', fg: colors.ink, bg: colors.paper, min: 3 },
   { name: 'slotEmpty', fg: colors.slotEmpty, bg: colors.paper, min: 3 },
+  { name: 'onBar.icon', fg: onBar.icon, bg: colors.bar, min: 3 },
+  { name: 'onBar.iconInactive', fg: onBar.iconInactive, bg: colors.bar, min: 3 },
 ];

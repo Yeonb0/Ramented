@@ -32,7 +32,8 @@ export const noteSheetStyle: ViewStyle = {
 };
 
 // 버튼 ② — 아래 테두리만 두껍게. 그림자가 아니라 같은 펜 선 색의 두꺼운 선
-// 눌리면 아래 테두리가 줄어든 만큼 아래로 내려가, 버튼 전체 높이와 주변 레이아웃은 그대로다
+// 눌리면 아래 테두리가 줄어든 만큼 위 여백을 더해 면이 내려간다
+// transform 이 아니라 여백으로 내리므로 버튼이 차지하는 높이와 주변 레이아웃은 그대로다
 export type ButtonVariant = 'primary' | 'secondary';
 
 const ButtonFace = {
@@ -52,7 +53,7 @@ export function getButtonStyle(
       borderColor: colors.ink,
       borderWidth: borderWidth.outline,
       borderBottomWidth: pressed ? borderWidth.outline : borderWidth.buttonBase,
-      transform: [{ translateY: pressed ? Sink : 0 }],
+      marginTop: pressed ? Sink : 0,
       minHeight: touchTarget.min,
       paddingHorizontal: spacing.xl,
       paddingVertical: spacing.sm,
@@ -67,17 +68,16 @@ export function getButtonStyle(
 // 리본 — 양 끝이 V자로 파인 제목 띠 (SVG)
 export const ribbon = {
   height: 32,
-  notchRatio: 0.25, // V자 홈 깊이 = 높이 × 0.25
+  notchRatio: 0.25, // V자 홈 깊이 = 기본 높이 (height) × 0.25. 글자가 커져 리본이 높아져도 깊이는 고정
   strokeWidth: borderWidth.inner,
   paddingHorizontal: spacing.xl,
   fill: colors.ribbon,
   stroke: colors.ink,
-  label: colors.onRibbon,
 } as const;
 
 /** 리본 외곽 path. 폭 · 높이는 실제 렌더 크기 (px) */
 export function ribbonPath(width: number, height: number): string {
-  const D = height * ribbon.notchRatio;
+  const D = ribbon.height * ribbon.notchRatio;
   const Mid = height / 2;
   return `M0 0 H${width} L${width - D} ${Mid} L${width} ${height} H0 L${D} ${Mid} Z`;
 }
