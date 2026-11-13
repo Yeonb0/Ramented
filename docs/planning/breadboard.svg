@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1200" viewBox="0 0 1700 1200" font-family="NanumSquareRound, Pretendard, sans-serif">
+<defs><marker id="ahe0e0e0" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#e0e0e0"/></marker><marker id="ahde0e0e0" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#e0e0e0"/></marker><marker id="ah8a8a8a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#8a8a8a"/></marker><marker id="ahd8a8a8a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#8a8a8a"/></marker><marker id="ahd9a066" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#d9a066"/></marker><marker id="ahdd9a066" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#d9a066"/></marker><marker id="ah7fb3d5" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7fb3d5"/></marker><marker id="ahd7fb3d5" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7fb3d5"/></marker><marker id="aha3c585" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#a3c585"/></marker><marker id="ahda3c585" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#a3c585"/></marker><marker id="ahe57373" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#e57373"/></marker><marker id="ahde57373" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#e57373"/></marker></defs>
+<rect width="1700" height="1200" fill="#1a1a1a"/>
+<text x="30" y="34" font-size="18" fill="#e0e0e0" font-weight="bold" text-anchor="start">라멘타쿠 v2.0 — Breadboard (selected-design, draft)</text>
+<text x="30" y="54" font-size="12" fill="#8a8a8a" font-weight="normal" text-anchor="start">실선 = 동작 흐름 · 점선 = 데이터 / 보이는 결과 · 위 = 화면, 아래 = 서버 계산과 저장소</text>
+<polyline points="320,128.0 334,127 334,303 320,304.0" fill="none" stroke="#d9a066" stroke-width="1.5" marker-end="url(#ahd9a066)"/>
+<polyline points="320,326.0 346,325 346,95 370,95.0" fill="none" stroke="#d9a066" stroke-width="1.5" marker-end="url(#ahd9a066)"/>
+<polyline points="660,194.0 686,193 686,95 710,95.0" fill="none" stroke="#d9a066" stroke-width="1.5" marker-end="url(#ahd9a066)"/>
+<polyline points="870.0,203 870,300 965,300 965.0,410" fill="none" stroke="#d9a066" stroke-width="1.5" marker-end="url(#ahd9a066)"/>
+<polyline points="1060,429.0 1070,429 1070,95 1080,95.0" fill="none" stroke="#d9a066" stroke-width="1.5" marker-end="url(#ahd9a066)"/>
+<polyline points="1340,238.0 1360,237 1360,769 1330,769.0" fill="none" stroke="#d9a066" stroke-width="1.5" marker-end="url(#ahd9a066)"/>
+<polyline points="1090,769.0 1010,769 1010,709 940,709.0" fill="none" stroke="#d9a066" stroke-width="1.5" marker-end="url(#ahd9a066)"/>
+<polyline points="830.0,690 830,620 1045,620 1045,171 1030,172.0" fill="none" stroke="#d9a066" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahdd9a066)"/>
+<polyline points="965.0,448 965,470 1060,470 1060,425 1080,425.0" fill="none" stroke="#e57373" stroke-width="1.5" marker-end="url(#ahe57373)"/>
+<polyline points="1210.0,467 1210,660 1210.0,690" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="1330,709.0 1376,709 1376,95 1340,95.0" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahd8a8a8a)"/>
+<polyline points="30,238.0 18,237 18,709 40,709.0" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="175.0,728 175.0,750" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="175.0,788 175,790 247,790 247.5,810" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="175.0,788 102,790 102.5,810" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahd8a8a8a)"/>
+<polyline points="165,829.0 175,829 175,860 322,860 322,127 320,128.0" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahd8a8a8a)"/>
+<polyline points="720,889.0 660,889 660,850 247,850 247.5,848" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahd8a8a8a)"/>
+<polyline points="660,216.0 660,215 700,215 700,400 850,400 850,429 870,429.0" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="870,429.0 850,429 690,429 690,425 660,425.0" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="660,524.0 680,523 680,769 620,769.0" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="500.0,750 500.0,728" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="620,709.0 640,709 640,889 620,889.0" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="380,709.0 358,709 358,149 370,150.0" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahd8a8a8a)"/>
+<polyline points="370,238.0 362,237 362,529 320,529.0" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="175.0,510 175.0,470" fill="none" stroke="#e0e0e0" stroke-width="1.5" marker-end="url(#ahe0e0e0)"/>
+<polyline points="115.0,965 60,940 28,940 28,769 40,769.0" fill="none" stroke="#a3c585" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahda3c585)"/>
+<polyline points="285.0,965 285,935 450,935 500.0,908" fill="none" stroke="#a3c585" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahda3c585)"/>
+<polyline points="455.0,965 455,935 500,935 500.0,908" fill="none" stroke="#a3c585" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahda3c585)"/>
+<polyline points="500.0,788 500,800 520,800 520,955 430,955 455.0,965" fill="none" stroke="#a3c585" stroke-width="1.5" marker-end="url(#aha3c585)"/>
+<polyline points="625.0,965 625,940 780,940 830.0,908" fill="none" stroke="#a3c585" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahda3c585)"/>
+<polyline points="1135.0,965 1135,945 860,945 830.0,908" fill="none" stroke="#a3c585" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahda3c585)"/>
+<polyline points="965.0,965 965,800 870,800 830.0,788" fill="none" stroke="#a3c585" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ahda3c585)"/>
+<polyline points="1210.0,788 1210,915 965,915 965.0,965" fill="none" stroke="#a3c585" stroke-width="1.5" marker-end="url(#aha3c585)"/>
+<polyline points="1210.0,788 1210,930 1135,930 1135.0,965" fill="none" stroke="#a3c585" stroke-width="1.5" marker-end="url(#aha3c585)"/>
+<polyline points="1330,709.0 1345,709 1345,950 1305,950 1305.0,965" fill="none" stroke="#a3c585" stroke-width="1.5" marker-end="url(#aha3c585)"/>
+<rect x="30" y="80" width="290" height="30" rx="6" fill="#2b2b2b" stroke="#d9a066"/>
+<rect x="370" y="80" width="290" height="30" rx="6" fill="#2b2b2b" stroke="#d9a066"/>
+<rect x="710" y="80" width="320" height="30" rx="6" fill="#2b2b2b" stroke="#d9a066"/>
+<rect x="1080" y="80" width="260" height="30" rx="6" fill="#2b2b2b" stroke="#d9a066"/>
+<rect x="1390" y="80" width="280" height="30" rx="6" fill="#2b2b2b" stroke="#d9a066"/>
+<rect x="1390" y="230" width="280" height="30" rx="6" fill="#2b2b2b" stroke="#d9a066"/>
+<rect x="370" y="410" width="290" height="30" rx="6" fill="#2b2b2b" stroke="#d9a066"/>
+<rect x="1080" y="410" width="260" height="30" rx="6" fill="#2b2b2b" stroke="#d9a066"/>
+<rect x="30" y="440" width="290" height="30" rx="6" fill="#2b2b2b" stroke="#d9a066"/>
+<rect x="870" y="410" width="190" height="38" rx="4" fill="#232323" stroke="#d9a066"/>
+<rect x="30" y="510" width="290" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<line x1="20" y1="640" x2="1680" y2="640" stroke="#3a3a3a" stroke-dasharray="2 6"/>
+<rect x="40" y="690" width="270" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="40" y="750" width="270" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="40" y="810" width="125" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="185" y="810" width="125" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="380" y="690" width="240" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="380" y="750" width="240" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="380" y="870" width="240" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="720" y="690" width="220" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="720" y="750" width="220" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="720" y="870" width="220" height="38" rx="4" fill="#232323" stroke="#e57373"/>
+<rect x="1090" y="690" width="240" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="1090" y="750" width="240" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="1400" y="690" width="260" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="1400" y="750" width="260" height="38" rx="4" fill="#232323" stroke="#7fb3d5"/>
+<rect x="40" y="965" width="150" height="38" rx="4" fill="#232323" stroke="#a3c585"/>
+<rect x="210" y="965" width="150" height="38" rx="4" fill="#232323" stroke="#a3c585"/>
+<rect x="380" y="965" width="150" height="38" rx="4" fill="#232323" stroke="#a3c585"/>
+<rect x="550" y="965" width="150" height="38" rx="4" fill="#232323" stroke="#a3c585"/>
+<rect x="720" y="965" width="150" height="38" rx="4" fill="#232323" stroke="#a3c585"/>
+<rect x="890" y="965" width="150" height="38" rx="4" fill="#232323" stroke="#a3c585"/>
+<rect x="1060" y="965" width="150" height="38" rx="4" fill="#232323" stroke="#a3c585"/>
+<rect x="1230" y="965" width="150" height="38" rx="4" fill="#232323" stroke="#a3c585"/>
+<rect x="1400" y="965" width="200" height="38" rx="4" fill="#232323" stroke="#a3c585"/>
+<text x="40" y="100" font-size="14" fill="#d9a066" font-weight="bold" text-anchor="start">P1  지도 (탭)</text>
+<text x="44" y="132" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U2</text>
+<text x="80" y="132" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">가게 마커 (기본 / 통과 n개 / 흐림)</text>
+<text x="44" y="154" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U3</text>
+<text x="80" y="154" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">불러오는 중</text>
+<text x="44" y="176" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U4</text>
+<text x="80" y="176" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">실패 + 다시 시도</text>
+<text x="44" y="198" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U5</text>
+<text x="80" y="198" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">필터 결과 0곳 안내 + 필터 끄기</text>
+<text x="40" y="220" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">P1.1  필터 바</text>
+<text x="44" y="242" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U6</text>
+<text x="80" y="242" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">해산물 제외 칩</text>
+<text x="44" y="264" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U7</text>
+<text x="80" y="264" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">국물 칩 : 청탕 / 백탕 / 비빔</text>
+<text x="40" y="286" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">P1.2  가게 미리보기 시트</text>
+<text x="44" y="308" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U8</text>
+<text x="80" y="308" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">이름 · 영업 상태 · 통과 n개</text>
+<text x="44" y="330" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U9</text>
+<text x="80" y="330" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">가게 보기</text>
+<text x="380" y="100" font-size="14" fill="#d9a066" font-weight="bold" text-anchor="start">P2  가게 상세</text>
+<text x="384" y="132" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U10</text>
+<text x="420" y="132" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">가게 이름 · 주소</text>
+<text x="384" y="154" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U11</text>
+<text x="420" y="154" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">영업 상태 + 근거 문구</text>
+<text x="384" y="176" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U12</text>
+<text x="420" y="176" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">이벤트 한 줄</text>
+<text x="384" y="198" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U13</text>
+<text x="420" y="198" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">메뉴 행 : 메뉴명 · 종류 · ★ (n명) · 배지</text>
+<text x="384" y="220" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U14</text>
+<text x="420" y="220" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">제보하기</text>
+<text x="384" y="242" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U15</text>
+<text x="420" y="242" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">인스타 열기</text>
+<text x="384" y="264" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U16</text>
+<text x="420" y="264" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">카카오맵에서 보기</text>
+<text x="384" y="286" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U17</text>
+<text x="420" y="286" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">불러오는 중 / 실패</text>
+<text x="720" y="100" font-size="14" fill="#d9a066" font-weight="bold" text-anchor="start">P3  메뉴 상세</text>
+<text x="724" y="132" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U18</text>
+<text x="760" y="132" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">메뉴명 · 가격 · 종류</text>
+<text x="724" y="154" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U19</text>
+<text x="760" y="154" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">해산물 · 국물 : 값 · 상태 · 근거 · 마지막 확인</text>
+<text x="724" y="176" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U20</text>
+<text x="760" y="176" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">★ 평균 (n명) / 아직 평가 없음</text>
+<text x="724" y="198" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U21</text>
+<text x="760" y="198" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">다녀왔어요 (기록하기)</text>
+<text x="724" y="220" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U22</text>
+<text x="760" y="220" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">불러오는 중 / 실패</text>
+<text x="1090" y="100" font-size="14" fill="#d9a066" font-weight="bold" text-anchor="start">P4  방문 기록 작성</text>
+<text x="1094" y="132" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U23</text>
+<text x="1130" y="132" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">기록할 메뉴</text>
+<text x="1094" y="154" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U24</text>
+<text x="1130" y="154" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">별점 1 ~ 5 (필수)</text>
+<text x="1094" y="176" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U25</text>
+<text x="1130" y="176" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">방문일</text>
+<text x="1094" y="198" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U26</text>
+<text x="1130" y="198" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">해산물 태깅 + 근거</text>
+<text x="1094" y="220" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U27</text>
+<text x="1130" y="220" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">국물 태깅</text>
+<text x="1094" y="242" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U28</text>
+<text x="1130" y="242" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">저장</text>
+<text x="1094" y="264" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U29</text>
+<text x="1130" y="264" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">저장 실패 (입력 유지)</text>
+<text x="1400" y="100" font-size="14" fill="#d9a066" font-weight="bold" text-anchor="start">P7  내 기록 (탭)</text>
+<text x="1404" y="132" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U37</text>
+<text x="1440" y="132" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">내 기록 목록</text>
+<text x="1404" y="154" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U38</text>
+<text x="1440" y="154" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">빈 상태 → 지도</text>
+<text x="1404" y="176" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U39</text>
+<text x="1440" y="176" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">로그인 안 됨 → 로그인</text>
+<text x="1400" y="250" font-size="14" fill="#d9a066" font-weight="bold" text-anchor="start">P8  프로필 (탭)</text>
+<text x="1404" y="282" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U40</text>
+<text x="1440" y="282" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">로그인 상태 · 로그아웃</text>
+<text x="380" y="430" font-size="14" fill="#d9a066" font-weight="bold" text-anchor="start">P5  제보 작성 (모달)</text>
+<text x="384" y="462" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U30</text>
+<text x="420" y="462" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">오늘 휴무 / 오늘 영업 / 이벤트</text>
+<text x="384" y="484" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U31</text>
+<text x="420" y="484" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">근거 : 직접 가봄 / 인스타</text>
+<text x="384" y="506" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U32</text>
+<text x="420" y="506" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">이벤트 한 줄 + 유효 기간</text>
+<text x="384" y="528" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U33</text>
+<text x="420" y="528" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">보내기</text>
+<text x="384" y="550" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U34</text>
+<text x="420" y="550" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">실패 메시지</text>
+<text x="1090" y="430" font-size="14" fill="#d9a066" font-weight="bold" text-anchor="start">P6  로그인 / 회원가입</text>
+<text x="1094" y="462" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U35</text>
+<text x="1130" y="462" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">로그인 / 가입</text>
+<text x="1094" y="484" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">U36</text>
+<text x="1130" y="484" font-size="12" fill="#e0e0e0" font-weight="normal" text-anchor="start">실패 메시지</text>
+<text x="40" y="460" font-size="14" fill="#d9a066" font-weight="bold" text-anchor="start">P10  외부 앱 (인스타 · 카카오맵)</text>
+<text x="878" y="426" font-size="12" fill="#d9a066" font-weight="bold" text-anchor="start">N8</text>
+<text x="878" y="441" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">로그인 확인 (없으면 S9 저장)</text>
+<text x="38" y="526" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N14</text>
+<text x="38" y="541" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">외부 링크 열기</text>
+<text x="30" y="662" font-size="13" fill="#7fb3d5" font-weight="bold" text-anchor="start">P9 서버 (API) — 파생 값은 여기서 계산하고 화면은 결과만 받는다</text>
+<text x="48" y="706" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N15</text>
+<text x="48" y="721" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">필터 상태 갱신 → 다시 조회</text>
+<text x="48" y="766" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N1</text>
+<text x="48" y="781" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">지도 데이터 조회</text>
+<text x="48" y="826" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N12</text>
+<text x="48" y="841" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">마커 그리기</text>
+<text x="193" y="826" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N3</text>
+<text x="193" y="841" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">필터 판정</text>
+<text x="388" y="706" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N6</text>
+<text x="388" y="721" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">가게 상세 조회</text>
+<text x="388" y="766" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N11</text>
+<text x="388" y="781" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">제보 저장 (24시간 / 7일)</text>
+<text x="388" y="886" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N4</text>
+<text x="388" y="901" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">영업 상태 (제보 &gt; 정기 시간)</text>
+<text x="728" y="706" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N7</text>
+<text x="728" y="721" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">메뉴 상세 조회</text>
+<text x="728" y="766" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N5</text>
+<text x="728" y="781" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">별점 집계 (회원별 최근 1개)</text>
+<text x="728" y="886" font-size="12" fill="#e57373" font-weight="bold" text-anchor="start">N2</text>
+<text x="728" y="901" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">속성 확정 규칙 (B5 · B9)</text>
+<text x="1098" y="706" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N9</text>
+<text x="1098" y="721" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">로그인 · 가입 처리</text>
+<text x="1098" y="766" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N10</text>
+<text x="1098" y="781" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">기록 저장 (검증 → S5 · S6)</text>
+<text x="1408" y="706" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N16</text>
+<text x="1408" y="721" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">로그아웃 (토큰 삭제)</text>
+<text x="1408" y="766" font-size="12" fill="#7fb3d5" font-weight="bold" text-anchor="start">N13</text>
+<text x="1408" y="781" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">내 기록 조회</text>
+<text x="1620" y="958" font-size="13" fill="#a3c585" font-weight="bold" text-anchor="end">저장소</text>
+<text x="48" y="981" font-size="12" fill="#a3c585" font-weight="bold" text-anchor="start">S8</text>
+<text x="48" y="996" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">필터 상태</text>
+<text x="218" y="981" font-size="12" fill="#a3c585" font-weight="bold" text-anchor="start">S1</text>
+<text x="218" y="996" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">가게 (정기 영업시간)</text>
+<text x="388" y="981" font-size="12" fill="#a3c585" font-weight="bold" text-anchor="start">S7</text>
+<text x="388" y="996" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">제보</text>
+<text x="558" y="981" font-size="12" fill="#a3c585" font-weight="bold" text-anchor="start">S2</text>
+<text x="558" y="996" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">메뉴 (시드 속성)</text>
+<text x="728" y="981" font-size="12" fill="#a3c585" font-weight="bold" text-anchor="start">S3</text>
+<text x="728" y="996" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">라멘 종류</text>
+<text x="898" y="981" font-size="12" fill="#a3c585" font-weight="bold" text-anchor="start">S5</text>
+<text x="898" y="996" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">방문 기록</text>
+<text x="1068" y="981" font-size="12" fill="#a3c585" font-weight="bold" text-anchor="start">S6</text>
+<text x="1068" y="996" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">속성 태깅</text>
+<text x="1238" y="981" font-size="12" fill="#a3c585" font-weight="bold" text-anchor="start">S4</text>
+<text x="1238" y="996" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">회원 · 토큰</text>
+<text x="1408" y="981" font-size="12" fill="#a3c585" font-weight="bold" text-anchor="start">S9</text>
+<text x="1408" y="996" font-size="11" fill="#e0e0e0" font-weight="normal" text-anchor="start">로그인 후 이어갈 동작</text>
+<text x="350" y="210" font-size="11" fill="#d9a066" font-weight="normal" text-anchor="start">①</text>
+<text x="690" y="145" font-size="11" fill="#d9a066" font-weight="normal" text-anchor="start">②</text>
+<text x="909" y="295" font-size="11" fill="#d9a066" font-weight="normal" text-anchor="start">③</text>
+<text x="1078" y="325" font-size="11" fill="#d9a066" font-weight="normal" text-anchor="start">로그인됨</text>
+<text x="1364" y="495" font-size="11" fill="#d9a066" font-weight="normal" text-anchor="start">④</text>
+<text x="954" y="735" font-size="11" fill="#d9a066" font-weight="normal" text-anchor="start">⑤ 돌아와 다시 조회</text>
+<text x="974" y="480" font-size="11" fill="#e57373" font-weight="normal" text-anchor="start">토큰 없음</text>
+<text x="1254" y="390" font-size="11" fill="#8a8a8a" font-weight="normal" text-anchor="start">S9의 동작으로</text>
+<text x="244" y="595" font-size="11" fill="#8a8a8a" font-weight="normal" text-anchor="start">영업 상태 + 근거 문구</text>
+<text x="30" y="1050" font-size="12" fill="#d9a066" font-weight="normal" text-anchor="start">①②③④⑤ = 대표 흐름 : 지도 → 가게 상세 → 메뉴 상세 → (로그인 확인) → 기록 저장 → 메뉴 상세가 새 별점 · 속성으로 다시 그려짐</text>
+<text x="30" y="1072" font-size="12" fill="#e57373" font-weight="normal" text-anchor="start">B1 : 해산물 제외는 &quot;미포함 확정&quot;만 통과 → 출시 직후 결과 0곳 가능 (T2, U5). 지인 베타 태깅으로 채운다</text>
+<text x="30" y="1094" font-size="12" fill="#e57373" font-weight="normal" text-anchor="start">B9 : 미포함 확정 뒤 &quot;들어있음&quot; 1개 → 변경 의심, 필터에서 빠짐 (T9). 국물은 다수결만</text>
+<text x="30" y="1116" font-size="12" fill="#e57373" font-weight="normal" text-anchor="start">B4 : 시드 값은 표를 세지 않는 초기값. 태깅 확정 시 근거가 &quot;방문자 n명&quot;으로 바뀐다</text>
+<text x="30" y="1138" font-size="12" fill="#e57373" font-weight="normal" text-anchor="start">Open : 타레 · 형태 · 온도는 시드에 없음 → 마커는 기본 / 통과 n개 / 흐림 세 모양만 (Open question 1)</text>
+<text x="30" y="1180" font-size="11" fill="#8a8a8a" font-weight="normal" text-anchor="start">표 (breadboard.md) 가 기준이다. 이 그림은 대표 흐름과 주요 갈래만 그리며, 표에 없는 동작은 없다</text>
+</svg>
