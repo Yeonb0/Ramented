@@ -17,3 +17,4 @@ export * from './typography';
 export * from './layout';
 export * from './marker';
 export * from './components';
+export * from './openTone';
