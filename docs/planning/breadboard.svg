@@ -227,6 +227,6 @@
 <text x="30" y="1072" font-size="12" fill="#e57373" font-weight="normal" text-anchor="start">B1 : 해산물 제외는 &quot;미포함 확정&quot;만 통과 → 출시 직후 결과 0곳 가능 (T2, U5). 지인 베타 태깅으로 채운다</text>
 <text x="30" y="1094" font-size="12" fill="#e57373" font-weight="normal" text-anchor="start">B9 : 미포함 확정 뒤 &quot;들어있음&quot; 1개 → 변경 의심, 필터에서 빠짐 (T9). 국물은 다수결만</text>
 <text x="30" y="1116" font-size="12" fill="#e57373" font-weight="normal" text-anchor="start">B4 : 시드 값은 표를 세지 않는 초기값. 태깅 확정 시 근거가 &quot;방문자 n명&quot;으로 바뀐다</text>
-<text x="30" y="1138" font-size="12" fill="#e57373" font-weight="normal" text-anchor="start">Open : 타레 · 형태 · 온도는 시드에 없음 → 마커는 기본 / 통과 n개 / 흐림 세 모양만 (Open question 1)</text>
+<text x="30" y="1138" font-size="12" fill="#e57373" font-weight="normal" text-anchor="start">형태만 시드에 넣고 (라멘 / 츠케멘 / 마제소바 · 비빔) 타레 · 온도는 v2.0 밖 → 마커는 기본 / 통과 n개 / 흐림 세 모양</text>
 <text x="30" y="1180" font-size="11" fill="#8a8a8a" font-weight="normal" text-anchor="start">표 (breadboard.md) 가 기준이다. 이 그림은 대표 흐름과 주요 갈래만 그리며, 표에 없는 동작은 없다</text>
 </svg>
