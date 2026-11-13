@@ -202,4 +202,4 @@ CURRENT에서 드러난 사실 :
   - 별점은 1명부터 평균 + 인원수, 0명은 "아직 평가 없음". 평균은 회원별 최근 별점 하나
   - 보기는 로그인 없이, 기록 · 태깅 · 제보는 로그인 필수. 휴무 · 영업 제보 24시간, 이벤트 7일. 엇갈리면 "제보 엇갈림"
   - 육수 변경 대응 : 미포함 확정 뒤 포함 응답 1개면 "변경 의심". 오래된 값은 지우지 않고 마지막 확인 날짜 표시
-- Next : selected-design breadboard (`breadboard.md`) 수락 → 슬라이스
+- Next : breadboard 수락 (2026-11-13, PR #6) → Phase 계획 (`phases.md`, Phase별 context packet은 `phases/`) → Phase 1 구현 (별도 세션)
