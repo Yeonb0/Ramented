@@ -16,3 +16,4 @@ export * from './colors';
 export * from './typography';
 export * from './layout';
 export * from './marker';
+export * from './components';
