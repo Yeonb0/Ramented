@@ -18,7 +18,7 @@ import {
   fontFamily,
   typography,
   TypeScaleKey,
-} from '../theme/theme';
+} from '../theme';
 
 type Weight = keyof typeof fontFamily;
 type ColorKey = keyof typeof colors;

@@ -1,51 +1,20 @@
 // app/src/theme/index.ts
 //
-// 디자인 토큰의 단일 진입점.
-// 화면 코드는 언제나 여기서만 가져온다:  import { colors, spacing } from '../theme';
+// 디자인 토큰의 단일 진입점
+// 화면 코드는 언제나 여기서만 가져온다 :  import { colors, spacing } from '../theme';
 //
-// 파일이 나뉜 기준:
-//   colors.ts     본문 팔레트 + 갈색 바 위 반전 팔레트
-//   typography.ts 폰트 패밀리 + 타입 스케일
-//   layout.ts     간격 · 라운드 · 테두리 · 터치 타겟
-//   marker.ts     지도 마커 (RN 과 WebView 가 공유하는 유일한 색 정의)
+// 3층 구조 (docs/design/v2-design-direction.md § 6)
+//   palette.ts     1층 국물 계열 색 (헥사값 유일)
+//   colors.ts      2층 의미 토큰 + 갈색 바 위 반전 팔레트
+//   marker.ts      2층 지도 마커 (RN 과 WebView 가 공유)
+//   components.ts  3층 부품 처리
+//   typography.ts  폰트 · 타입 스케일
+//   layout.ts      간격 · 라운드 · wobble · 펜 선 두께 · 터치 타겟
 
+export * from './palette';
 export * from './colors';
 export * from './typography';
 export * from './layout';
 export * from './marker';
-
-import { colors, onBar } from './colors';
-import { fontFamily, typography, letterSpacing } from './typography';
-import { spacing, radius, borderWidth, touchTarget } from './layout';
-import {
-  markerColors,
-  markerNeutral,
-  markerDimmed,
-  markerSize,
-  formShapes,
-  mapSkeleton,
-} from './marker';
-
-/**
- * 토큰 전체를 한 덩어리로 넘겨야 할 때만 쓴다. (예: 테스트, 스타일가이드 화면)
- * 일반 화면 코드는 개별 named import 를 쓰는 편이 트리셰이킹에 유리하다.
- */
-export const theme = {
-  colors,
-  onBar,
-  fontFamily,
-  typography,
-  letterSpacing,
-  spacing,
-  radius,
-  borderWidth,
-  touchTarget,
-  markerColors,
-  markerNeutral,
-  markerDimmed,
-  markerSize,
-  formShapes,
-  mapSkeleton,
-} as const;
-
-export type Theme = typeof theme;
+export * from './components';
+export * from './openTone';

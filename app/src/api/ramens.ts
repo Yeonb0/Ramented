@@ -1,7 +1,6 @@
 // app/src/api/ramens.ts
 import { apiGet } from './client';
 
-// 백엔드 enum 이름과 1:1. theme.ts 의 markerColors / formShapes 키와 직접 맞물린다.
 export type SoupBase = 'PORK' | 'CHICKEN' | 'BEEF' | 'DUCK' | 'SEAFOOD' | 'VEGETABLE' | 'MIXED' | 'ETC';
 export type Clarity = 'SEITAN' | 'PAITAN' | null;
 export type Temperature = 'HOT' | 'COLD';
