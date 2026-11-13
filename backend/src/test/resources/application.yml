@@ -17,12 +17,13 @@ spring:
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop   # 테스트마다 깨끗한 스키마
+      ddl-auto: validate      # 운영과 같이 Flyway 스키마를 엔티티와 대조한다
     show-sql: false           # 단정문이 로그에 묻히지 않게
+  flyway:
+    enabled: true             # V1 스키마 + V2 시드 30곳이 테스트 DB 에도 들어간다
 
 app:
-  seed:
-    enabled: false            # DataSeeder 가 픽스처를 오염시키지 않도록
+  zone: Asia/Seoul
 
 # ⚠️ H2 의 한계
 #   이 설정은 JPQL·매핑·직렬화를 검증한다.
