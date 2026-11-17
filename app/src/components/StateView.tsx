@@ -12,9 +12,10 @@ import { Text } from './Text';
 type Props = {
   kind: 'loading' | 'error';
   onRetry?: () => void;
+  detail?: string; // 개발 빌드에서만 넘긴다 (실제 오류 · 요청 주소)
 };
 
-export function StateView({ kind, onRetry }: Props) {
+export function StateView({ kind, onRetry, detail }: Props) {
   if (kind === 'loading') {
     return (
       <View style={styles.center} accessibilityRole="progressbar">
@@ -32,6 +33,11 @@ export function StateView({ kind, onRetry }: Props) {
         <Text variant="subtitle" weight="bold">
           지도를 불러오지 못했어요
         </Text>
+        {detail ? (
+          <Text variant="caption" color="textMuted" style={styles.gap}>
+            {detail}
+          </Text>
+        ) : null}
         {onRetry && (
           <View style={styles.gap}>
             <Button label="다시 시도" variant="secondary" onPress={onRetry} />

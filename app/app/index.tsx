@@ -16,7 +16,7 @@ import { toMarkerPayload } from '../src/map/mapHtml';
 import { colors, mapView } from '../src/theme';
 
 export default function MapHome() {
-  const { data: Shops, isPending, isError, refetch } = useMapShops();
+  const { data: Shops, isPending, isError, error, refetch } = useMapShops();
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const Markers = useMemo(
@@ -46,7 +46,11 @@ export default function MapHome() {
       )}
       {isError && (
         <View style={styles.overlay}>
-          <StateView kind="error" onRetry={() => refetch()} />
+          <StateView
+            kind="error"
+            onRetry={() => refetch()}
+            detail={__DEV__ ? error?.message : undefined}
+          />
         </View>
       )}
 
