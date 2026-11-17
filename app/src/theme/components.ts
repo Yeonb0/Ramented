@@ -18,13 +18,14 @@ export const noteCardStyle: ViewStyle = {
   ...wobbleStyle(wobble.card),
 };
 
-// 노트 시트 — 화면 아래에 붙는 시트. 위 테두리만 긋고 위 두 모서리만 삐뚤게
+// 노트 시트 — 화면 아래에 붙는 시트. 위 · 왼쪽 · 오른쪽에 펜 선, 아래는 화면 끝에 붙어 열어 둔다
+// 위 두 모서리만 삐뚤게
 export const noteSheetStyle: ViewStyle = {
   backgroundColor: colors.paper,
   borderColor: colors.ink,
   borderTopWidth: borderWidth.outline,
-  borderLeftWidth: 0,
-  borderRightWidth: 0,
+  borderLeftWidth: borderWidth.outline,
+  borderRightWidth: borderWidth.outline,
   borderBottomWidth: 0,
   paddingHorizontal: spacing.lg,
   paddingBottom: spacing.xl,

@@ -28,8 +28,10 @@ test('리본은 V자 홈 없는 네모 띠', () => {
   expect(ribbonStyle.borderColor).toBe(colors.ink);
 });
 
-test('시트는 위 테두리만', () => {
+test('시트는 위 · 왼쪽 · 오른쪽에 펜 선, 아래만 화면 끝에 붙어 열려 있다', () => {
   expect(noteSheetStyle.borderTopWidth).toBe(borderWidth.outline);
+  expect(noteSheetStyle.borderLeftWidth).toBe(borderWidth.outline);
+  expect(noteSheetStyle.borderRightWidth).toBe(borderWidth.outline);
   expect(noteSheetStyle.borderBottomWidth).toBe(0);
 });
 
