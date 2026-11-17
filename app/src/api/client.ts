@@ -1,4 +1,12 @@
-const BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL ?? 'http://localhost:8080';
+// app/src/api/client.ts
+import Constants from 'expo-constants';
+import { resolveBaseUrl } from './baseUrl';
+
+const BASE_URL = resolveBaseUrl({
+  envUrl: process.env.EXPO_PUBLIC_API_BASE_URL,
+  hostUri: Constants.expoConfig?.hostUri,
+  isDev: __DEV__,
+});
 
 export async function apiGet<T>(path: string): Promise<T> {
   const res = await fetch(`${BASE_URL}${path}`);
