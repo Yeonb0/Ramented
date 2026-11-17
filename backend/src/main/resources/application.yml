@@ -5,10 +5,13 @@ spring:
     password: ${DB_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: update
+      # 스키마는 Flyway (db/migration) 가 만든다. 엔티티와 어긋나면 기동 시 실패시켜 바로 드러낸다
+      ddl-auto: validate
     show-sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
 
 app:
-  seed:
-    # 시드는 db/seed/*.sql 로 단일화. DataSeeder 는 스키마 초기화 직후에만 켠다.
-    enabled: false
+  # 영업 상태 계산 기준 시각대 (breadboard N4)
+  zone: Asia/Seoul
