@@ -51,3 +51,9 @@ export const mapSkeleton = {
   park: palette.shio[50],
   water: palette.shio[30],
 } as const;
+
+// 지도 첫 화면 — 마포구 시드 30곳이 한 화면에 들어오는 중심 · 확대 레벨 (카카오 레벨 : 작을수록 확대)
+export const mapView = {
+  center: { latitude: 37.5502, longitude: 126.9259 },
+  level: 7,
+} as const;
